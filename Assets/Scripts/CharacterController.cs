@@ -21,6 +21,9 @@ public class CharacterController : MonoBehaviour
     void OnJump()
         => m_ControlledCharacter.OnJump();
 
+    void OnInteract()
+        => m_ControlledCharacter.OnInteract();
+
     void Awake()
     {
         cameraScript = m_Camera.GetComponent<CameraScript>();
