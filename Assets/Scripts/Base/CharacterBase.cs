@@ -5,8 +5,6 @@ using UnityEngine.InputSystem;
 
 public abstract class CharacterBase : MonoBehaviour
 {
-    [SerializeField]
-    protected LayerMask m_PlatformsLayerMask;
     protected Rigidbody2D m_Rigidbody2D;
 
     protected BoxCollider2D m_BoxCollider2D;
@@ -21,9 +19,6 @@ public abstract class CharacterBase : MonoBehaviour
 
     [SerializeField]
     protected float m_InteractDistance = 1f;
-
-    [SerializeField]
-    protected LayerMask m_InteractObjectMask;
 
     protected RaycastHit2D m_hit;
 
@@ -41,7 +36,8 @@ public abstract class CharacterBase : MonoBehaviour
 
     protected virtual void Update(){
         transform.Translate(direction * m_Speed * Time.deltaTime);
-        m_hit = Physics2D.Raycast(transform.position, Vector2.right*transform.localScale.x, m_InteractDistance, m_InteractObjectMask);
+        Physics2D.queriesStartInColliders = false; //Avoids ray collisions from hitting own object
+        m_hit = Physics2D.Raycast(transform.position, Vector2.right*transform.localScale.x, m_InteractDistance);
     }
 
     public void OnMovement(InputValue value)
@@ -65,8 +61,7 @@ public abstract class CharacterBase : MonoBehaviour
     }
 
     protected bool IsGrounded(){
-        //BoxCast will only check for objects with Platforms Layer
-        RaycastHit2D raycastHit2D = Physics2D.BoxCast(m_BoxCollider2D.bounds.center, m_BoxCollider2D.bounds.size, 0f, Vector2.down, .1f, m_PlatformsLayerMask);
+        RaycastHit2D raycastHit2D = Physics2D.BoxCast(m_BoxCollider2D.bounds.center, m_BoxCollider2D.bounds.size, 0f, Vector2.down, .1f);
         return raycastHit2D.collider != null;
     }
 
@@ -95,6 +90,9 @@ public abstract class CharacterBase : MonoBehaviour
 
             if(m_ObjectHit.tag == "PushableObject" && m_HoldingObject == false)
             {
+                //Picking up Pushable Objects
+
+                Physics2D.IgnoreCollision(m_hit.collider, m_BoxCollider2D); //ignores picked up object collider
                 m_HoldingObject = true;
                 m_ObjectHit.transform.parent = m_BoxHolder;
                 m_ObjectHit.transform.position = m_BoxHolder.position;
@@ -102,6 +100,9 @@ public abstract class CharacterBase : MonoBehaviour
             }
             else if(m_HoldingObject == true)
             {
+                //Releasing Pushable Objects
+
+                Physics2D.IgnoreCollision(m_hit.collider, m_BoxCollider2D, false);//enables collision on release
                 m_HoldingObject = false;
                 m_ObjectHit.transform.parent = null;
                 m_ObjectHit.GetComponent<Rigidbody2D>().isKinematic = false;
