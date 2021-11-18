@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 
 public class BallControl : MonoBehaviour
 {
+    public Transform GirlParent;
 
     public GameObject testDot;
 
@@ -32,6 +33,7 @@ public class BallControl : MonoBehaviour
         Debug.Log("Points colliding: " + col.contacts.Length);
         Debug.Log("First point that collided: " + col.contacts[0].point);
         testDot.transform.position = col.contacts[0].point;
+        transform.SetParent(GirlParent);
     }
 
     void OnStartThrow()
@@ -71,7 +73,8 @@ public class BallControl : MonoBehaviour
 
         rb.velocity = _velocity;
         lr.positionCount = 0;
-
+        transform.SetParent(null);
+        
     }
 
     public Vector2[] Plot(Rigidbody2D rigidbody, Vector2 pos, Vector2 velocity, int steps)
