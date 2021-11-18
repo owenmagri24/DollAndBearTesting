@@ -1,0 +1,71 @@
+{
+    "name": "Player_input",
+    "maps": [
+        {
+            "name": "Player",
+            "id": "19bd624a-4e5b-4a62-aec9-ff92bfc0b06c",
+            "actions": [
+                {
+                    "name": "Start Throw",
+                    "type": "Button",
+                    "id": "41dcb026-a028-46ca-b1cd-2bb92c4e4c8a",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press"
+                },
+                {
+                    "name": "End Throw",
+                    "type": "Button",
+                    "id": "1a16f6a4-97a8-41ad-b165-6767d0389192",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press(behavior=1)"
+                },
+                {
+                    "name": "Mouse Move",
+                    "type": "PassThrough",
+                    "id": "36245ec3-9fb9-47ac-a897-b18b2e3226ea",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "d5c8d4d9-ea38-4114-b7b6-8f5a3fcc8af4",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Start Throw",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f2ef06a5-95be-4b29-bd5c-3c2f26581434",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "End Throw",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "562a0cf9-f232-439a-831c-7cb19f32e209",
+                    "path": "<Mouse>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Mouse Move",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
