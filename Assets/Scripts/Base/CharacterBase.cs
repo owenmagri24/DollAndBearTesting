@@ -71,42 +71,16 @@ public abstract class CharacterBase : MonoBehaviour
         Gizmos.DrawLine(transform.position, (Vector2)transform.position + Vector2.right * transform.localScale.x * m_InteractDistance);
     }
 
-    public void OnInteract(){
-        /*
+    public virtual void OnInteract(){
         if(m_hit.collider != null){
             m_ObjectHit = m_hit.collider.gameObject;
 
-            if(m_ObjectHit.tag == "PushableObject")
-            {
-                Debug.Log(m_ObjectHit);
+            
+            /* -- to be used when implementing interactable objects
+            if(m_ObjectHit.tag == "InteractableObject"){
 
-                m_ObjectHit.GetComponent<FixedJoint2D>().enabled = true;
-                m_ObjectHit.GetComponent<FixedJoint2D>().connectedBody = m_Rigidbody2D;
             }
-        }
-        */
-        if(m_hit.collider != null){
-            m_ObjectHit = m_hit.collider.gameObject;
-
-            if(m_ObjectHit.tag == "PushableObject" && m_HoldingObject == false)
-            {
-                //Picking up Pushable Objects
-
-                Physics2D.IgnoreCollision(m_hit.collider, m_BoxCollider2D); //ignores picked up object collider
-                m_HoldingObject = true;
-                m_ObjectHit.transform.parent = m_BoxHolder;
-                m_ObjectHit.transform.position = m_BoxHolder.position;
-                m_ObjectHit.GetComponent<Rigidbody2D>().isKinematic = true;
-            }
-            else if(m_HoldingObject == true)
-            {
-                //Releasing Pushable Objects
-
-                Physics2D.IgnoreCollision(m_hit.collider, m_BoxCollider2D, false);//enables collision on release
-                m_HoldingObject = false;
-                m_ObjectHit.transform.parent = null;
-                m_ObjectHit.GetComponent<Rigidbody2D>().isKinematic = false;
-            }
+            */
         }
     }
 }

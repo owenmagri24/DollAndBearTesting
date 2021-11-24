@@ -14,6 +14,9 @@ public class CharacterController : MonoBehaviour
     private GameObject m_Camera;
     CameraScript cameraScript;
 
+    [SerializeField]
+    private GameObject m_Ball;
+
     void OnMovement(InputValue value)
         => m_ControlledCharacter.OnMovement(value);
 
@@ -29,6 +32,18 @@ public class CharacterController : MonoBehaviour
         m_ControlledCharacter = m_Characters[0];
         m_Characters[1].gameObject.SetActive(false);
     }
+
+    private void Update() {
+        //if bear is active, deactivate ball
+        if (m_Characters[1].gameObject.activeSelf)
+        {
+            m_Ball.SetActive(false);
+        }
+        else{
+            m_Ball.SetActive(true);
+        }
+    }
+
     void OnSwitchPlayer(){
         if (!m_Characters[1].gameObject.activeSelf)
             return;//exit function if bear is not active   

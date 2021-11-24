@@ -5,53 +5,54 @@ using UnityEngine.InputSystem;
 
 public class BallControl : MonoBehaviour
 {
-
-    public GameObject testDot;
     public GameObject DollBear;
     public GameObject Girl;
 
-    public float power = 5f;
+    private float m_Power = 5f;
 
-    Rigidbody2D rb;
+    private Rigidbody2D m_Rb;
 
-    LineRenderer lr;
+    private LineRenderer m_Lr;
 
-    CircleCollider2D cl;
+    private CircleCollider2D m_Cl;
 
-    Vector2 DragStartPos;
+    private Vector2 m_DragStartPos;
 
-    Vector2 mousePosition;
+    private Vector2 m_mousePosition;
 
-    bool isThrowing = false;
+    private bool m_isThrowing = false;
 
     private void Awake()
     {
-        rb = GetComponent<Rigidbody2D>();
-        lr = GetComponent<LineRenderer>();
-        cl = GetComponent<CircleCollider2D>();
+        m_Rb = GetComponent<Rigidbody2D>();
+        m_Lr = GetComponent<LineRenderer>();
+        m_Cl = GetComponent<CircleCollider2D>();
 
     }
 
     // Start is called before the first frame update
     private void Start()
     {
-        rb.isKinematic = true;
-        cl.enabled = false;
+        m_Rb.isKinematic = true;
+        m_Cl.enabled = false;
+    }
 
+    private void Update() {
         Physics2D.IgnoreCollision(Girl.GetComponent<Collider2D>() , this.GetComponent<Collider2D>());
     }
 
     void OnCollisionEnter2D(Collision2D col)
     {
+        /*
         Debug.Log("Points colliding: " + col.contacts.Length);
         Debug.Log("First point that collided: " + col.contacts[0].point);
-        //testDot.transform.position = col.contacts[0].point;
+        */
         DollBear.transform.position = col.contacts[0].point;
         transform.SetParent(Girl.transform);
 
-        rb.isKinematic = true;
-        cl.enabled = false;
-        rb.velocity = Vector2.zero;
+        m_Rb.isKinematic = true;
+        m_Cl.enabled = false;
+        m_Rb.velocity = Vector2.zero;
         this.transform.localPosition = new Vector3(0,0,0);
         DollBear.SetActive(true);
 
@@ -59,43 +60,43 @@ public class BallControl : MonoBehaviour
 
     void OnStartThrow()
     {
-        isThrowing = true;
-        DragStartPos = Camera.main.ScreenToWorldPoint(mousePosition);
+        m_isThrowing = true;
+        m_DragStartPos = Camera.main.ScreenToWorldPoint(m_mousePosition);
         
     }
 
     void OnMouseMove(InputValue value)
     {
-        mousePosition = value.Get<Vector2>();
+        m_mousePosition = value.Get<Vector2>();
 
-        if (!isThrowing) return;
+        if (!m_isThrowing) return;
 
-        Vector2 DragEndPos = Camera.main.ScreenToWorldPoint(mousePosition);
-        Vector2 _velocity = (DragEndPos - DragStartPos) * power;
+        Vector2 DragEndPos = Camera.main.ScreenToWorldPoint(m_mousePosition);
+        Vector2 _velocity = (DragEndPos - m_DragStartPos) * m_Power;
 
-        Vector2[] trajectory = Plot(rb, (Vector2)transform.position, _velocity, 500);
+        Vector2[] trajectory = Plot(m_Rb, (Vector2)transform.position, _velocity, 500);
 
-        lr.positionCount = trajectory.Length;
+        m_Lr.positionCount = trajectory.Length;
 
         Vector3[] positions = new Vector3[trajectory.Length];
         for (int i = 0; i < positions.Length; i++)
         {
             positions[i] = trajectory[i];
         }
-        lr.SetPositions(positions);
+        m_Lr.SetPositions(positions);
     }
 
     void OnEndThrow()
     {
-        Vector2 DragEndPos = Camera.main.ScreenToWorldPoint(mousePosition);
-        Vector2 _velocity = (DragEndPos - DragStartPos) * power;
+        Vector2 DragEndPos = Camera.main.ScreenToWorldPoint(m_mousePosition);
+        Vector2 _velocity = (DragEndPos - m_DragStartPos) * m_Power;
 
-        isThrowing = false;
+        m_isThrowing = false;
 
-        rb.velocity = _velocity;
-        lr.positionCount = 0;
-        cl.enabled = true;
-        rb.isKinematic = false;
+        m_Rb.velocity = _velocity;
+        m_Lr.positionCount = 0;
+        m_Cl.enabled = true;
+        m_Rb.isKinematic = false;
         transform.SetParent(null);
         
     }

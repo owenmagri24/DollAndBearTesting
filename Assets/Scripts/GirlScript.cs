@@ -10,4 +10,17 @@ public class GirlScript : CharacterBase
         base.Update();
         
     }
+
+    public override void OnInteract()
+    {
+        base.OnInteract();
+
+        if(m_hit.collider != null){
+            m_ObjectHit = m_hit.collider.gameObject;
+
+            if(m_ObjectHit.tag == "Bear"){
+                m_ObjectHit.SetActive(false);
+            }
+        }
+    }
 }

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - PushableObject
   - Water
+  - Bear
   layers:
   - Default
   - TransparentFX
