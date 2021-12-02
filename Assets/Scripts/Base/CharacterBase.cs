@@ -7,7 +7,7 @@ public abstract class CharacterBase : MonoBehaviour
 {
     protected Rigidbody2D m_Rigidbody2D;
 
-    protected BoxCollider2D m_BoxCollider2D;
+    protected Collider2D m_BoxCollider2D;
 
     [SerializeField]
     protected float m_JumpForce = 500f;
@@ -31,7 +31,7 @@ public abstract class CharacterBase : MonoBehaviour
     protected virtual void Awake()
     {
         m_Rigidbody2D = GetComponent<Rigidbody2D>();
-        m_BoxCollider2D = GetComponent<BoxCollider2D>();
+        m_BoxCollider2D = GetComponent<Collider2D>();
     }
 
     protected virtual void Update(){
@@ -61,7 +61,8 @@ public abstract class CharacterBase : MonoBehaviour
     }
 
     protected bool IsGrounded(){
-        RaycastHit2D raycastHit2D = Physics2D.BoxCast(m_BoxCollider2D.bounds.center, m_BoxCollider2D.bounds.size, 0f, Vector2.down, .1f);
+        RaycastHit2D raycastHit2D = Physics2D.Raycast(transform.position, Vector2.down, 2.5f, 1 << LayerMask.NameToLayer("Platforms"));
+        Debug.Log(LayerMask.NameToLayer("Platforms"));
         return raycastHit2D.collider != null;
     }
 

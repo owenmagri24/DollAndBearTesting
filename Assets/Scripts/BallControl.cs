@@ -38,7 +38,7 @@ public class BallControl : MonoBehaviour
     }
 
     private void Update() {
-        Physics2D.IgnoreCollision(Girl.GetComponent<Collider2D>() , this.GetComponent<Collider2D>());
+        //Physics2D.IgnoreCollision(Girl.GetComponent<Collider2D>() , this.GetComponent<Collider2D>());
     }
 
     void OnCollisionEnter2D(Collision2D col)
@@ -47,7 +47,7 @@ public class BallControl : MonoBehaviour
         Debug.Log("Points colliding: " + col.contacts.Length);
         Debug.Log("First point that collided: " + col.contacts[0].point);
         */
-        DollBear.transform.position = col.contacts[0].point;
+        DollBear.transform.position = transform.position;
         transform.SetParent(Girl.transform);
 
         m_Rb.isKinematic = true;
