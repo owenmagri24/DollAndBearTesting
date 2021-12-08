@@ -22,6 +22,12 @@ public class BallControl : MonoBehaviour
 
     private bool m_isThrowing = false;
 
+    [SerializeField]
+    private float camera_ZoomOut = 15f;
+
+    [SerializeField]
+    private float camera_ZoomNormal = 10f;
+
     private void Awake()
     {
         m_Rb = GetComponent<Rigidbody2D>();
@@ -62,6 +68,7 @@ public class BallControl : MonoBehaviour
     {
         m_isThrowing = true;
         m_DragStartPos = Camera.main.ScreenToWorldPoint(m_mousePosition);
+        Camera.main.orthographicSize = camera_ZoomOut;
         
     }
 
@@ -98,7 +105,8 @@ public class BallControl : MonoBehaviour
         m_Cl.enabled = true;
         m_Rb.isKinematic = false;
         transform.SetParent(null);
-        
+        Camera.main.orthographicSize = camera_ZoomNormal;
+
     }
 
     public Vector2[] Plot(Rigidbody2D rigidbody, Vector2 pos, Vector2 velocity, int steps)
