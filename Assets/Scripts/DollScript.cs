@@ -5,12 +5,6 @@ using UnityEngine.InputSystem;
 
 public class DollScript : CharacterBase
 {
-    
-    protected override void Update()
-    {
-        base.Update();
-        
-    }
 
     public override void OnInteract(){
         base.OnInteract();

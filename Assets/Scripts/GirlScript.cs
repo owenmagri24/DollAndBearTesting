@@ -5,12 +5,6 @@ using UnityEngine.InputSystem;
 
 public class GirlScript : CharacterBase
 {
-    protected override void Update()
-    {
-        base.Update();
-        
-    }
-
     public override void OnInteract()
     {
         base.OnInteract();

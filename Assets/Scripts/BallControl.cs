@@ -33,7 +33,6 @@ public class BallControl : MonoBehaviour
         m_Rb = GetComponent<Rigidbody2D>();
         m_Lr = GetComponent<LineRenderer>();
         m_Cl = GetComponent<CircleCollider2D>();
-
     }
 
     // Start is called before the first frame update
@@ -69,7 +68,6 @@ public class BallControl : MonoBehaviour
         m_isThrowing = true;
         m_DragStartPos = Camera.main.ScreenToWorldPoint(m_mousePosition);
         Camera.main.orthographicSize = camera_ZoomOut;
-        
     }
 
     void OnMouseMove(InputValue value)

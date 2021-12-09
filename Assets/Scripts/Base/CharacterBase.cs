@@ -34,8 +34,9 @@ public abstract class CharacterBase : MonoBehaviour
         m_BoxCollider2D = GetComponent<Collider2D>();
     }
 
-    protected virtual void Update(){
-        transform.Translate(direction * m_Speed * Time.deltaTime);
+    protected virtual void FixedUpdate(){
+        m_Rigidbody2D.velocity = new Vector2(direction.x * m_Speed, m_Rigidbody2D.velocity.y);
+        //transform.Translate(direction * m_Speed * Time.deltaTime);
         Physics2D.queriesStartInColliders = false; //Avoids ray collisions from hitting own object
         m_hit = Physics2D.Raycast(transform.position, Vector2.right*transform.localScale.x, m_InteractDistance);
     }
