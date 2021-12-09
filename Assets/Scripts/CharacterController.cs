@@ -45,7 +45,10 @@ public class CharacterController : MonoBehaviour
 
     void OnSwitchPlayer(){
         if (!m_Characters[1].gameObject.activeSelf)
-            return;//exit function if bear is not active   
+            return;//exit function if bear is not active
+
+        m_ControlledCharacter.Stop();
+
         if(m_ControlledCharacter == m_Characters[0]){
             m_ControlledCharacter = m_Characters[1];
             m_Camera.Follow = m_Characters[1].transform;
