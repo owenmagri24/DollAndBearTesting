@@ -11,11 +11,8 @@ public class CharacterController : MonoBehaviour
     public CharacterBase[] m_Characters = {};
 
     [SerializeField]
-    private GameObject m_Camera;
-    CameraScript cameraScript;
-
-    [SerializeField]
     private GameObject m_Ball;
+    private CinemachineVirtualCamera m_Camera;
 
     void OnMovement(InputValue value)
         => m_ControlledCharacter.OnMovement(value);
@@ -28,7 +25,6 @@ public class CharacterController : MonoBehaviour
 
     void Awake()
     {
-        cameraScript = m_Camera.GetComponent<CameraScript>();
         m_ControlledCharacter = m_Characters[0];
         m_Characters[1].gameObject.SetActive(false);
     }
@@ -49,11 +45,11 @@ public class CharacterController : MonoBehaviour
             return;//exit function if bear is not active   
         if(m_ControlledCharacter == m_Characters[0]){
             m_ControlledCharacter = m_Characters[1];
-            cameraScript.m_Target = m_Characters[1].transform;
+            //cameraScript.m_Target = m_Characters[1].transform;
         }else 
         {
             m_ControlledCharacter = m_Characters[0];
-            cameraScript.m_Target = m_Characters[0].transform;
+            //cameraScript.m_Target = m_Characters[0].transform;
         }
     }
 }
