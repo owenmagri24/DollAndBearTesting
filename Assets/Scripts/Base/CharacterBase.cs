@@ -85,4 +85,9 @@ public abstract class CharacterBase : MonoBehaviour
             */
         }
     }
+
+    public void Stop()
+    {
+        direction = Vector2.zero;
+    }
 }

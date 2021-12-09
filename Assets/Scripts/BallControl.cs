@@ -22,11 +22,14 @@ public class BallControl : MonoBehaviour
 
     private bool m_isThrowing = false;
 
+    private bool m_canThrow = true;
+
     [SerializeField]
     private float camera_ZoomOut = 15f;
 
     [SerializeField]
     private float camera_ZoomNormal = 10f;
+    
 
     private void Awake()
     {
@@ -60,14 +63,18 @@ public class BallControl : MonoBehaviour
         m_Rb.velocity = Vector2.zero;
         this.transform.localPosition = new Vector3(0,0,0);
         DollBear.SetActive(true);
+        m_canThrow = true;
 
     }
 
     void OnStartThrow()
     {
+        if (m_canThrow == false)
+            return;
         m_isThrowing = true;
         m_DragStartPos = Camera.main.ScreenToWorldPoint(m_mousePosition);
         Camera.main.orthographicSize = camera_ZoomOut;
+        
     }
 
     void OnMouseMove(InputValue value)
@@ -93,9 +100,13 @@ public class BallControl : MonoBehaviour
 
     void OnEndThrow()
     {
+        if (m_canThrow == false || m_isThrowing == false)
+            return;
         Vector2 DragEndPos = Camera.main.ScreenToWorldPoint(m_mousePosition);
         Vector2 _velocity = (DragEndPos - m_DragStartPos) * m_Power;
 
+
+        m_canThrow = false;
         m_isThrowing = false;
 
         m_Rb.velocity = _velocity;
@@ -104,7 +115,14 @@ public class BallControl : MonoBehaviour
         m_Rb.isKinematic = false;
         transform.SetParent(null);
         Camera.main.orthographicSize = camera_ZoomNormal;
+    }
 
+    void OnCancelThrow()
+    {
+        Debug.Log("rightclick working");
+        m_isThrowing = false;
+
+        m_Lr.positionCount = 0;
     }
 
     public Vector2[] Plot(Rigidbody2D rigidbody, Vector2 pos, Vector2 velocity, int steps)
