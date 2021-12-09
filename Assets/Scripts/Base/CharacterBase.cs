@@ -62,7 +62,7 @@ public abstract class CharacterBase : MonoBehaviour
     }
 
     protected bool IsGrounded(){
-        RaycastHit2D raycastHit2D = Physics2D.Raycast(transform.position, Vector2.down, 2.5f, 1 << LayerMask.NameToLayer("Platforms"));
+        RaycastHit2D raycastHit2D = Physics2D.Raycast(transform.position, Vector2.down, 1.5f, 1 << LayerMask.NameToLayer("Platforms"));
         Debug.Log(LayerMask.NameToLayer("Platforms"));
         return raycastHit2D.collider != null;
     }
