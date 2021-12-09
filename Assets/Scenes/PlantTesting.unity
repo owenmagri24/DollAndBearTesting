@@ -1264,7 +1264,7 @@ MonoBehaviour:
   - {fileID: 729124772}
   - {fileID: 165742810}
   m_Ball: {fileID: 1164772219}
-  m_Camera: {fileID: 1106875866}
+  m_Camera: {fileID: 1106875867}
 --- !u!114 &1426495370
 MonoBehaviour:
   m_ObjectHideFlags: 0

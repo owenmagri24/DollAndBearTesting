@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 using UnityEngine.InputSystem;
 
 public class CharacterController : MonoBehaviour
@@ -12,6 +13,8 @@ public class CharacterController : MonoBehaviour
 
     [SerializeField]
     private GameObject m_Ball;
+
+    [SerializeField]
     private CinemachineVirtualCamera m_Camera;
 
     void OnMovement(InputValue value)
@@ -45,11 +48,11 @@ public class CharacterController : MonoBehaviour
             return;//exit function if bear is not active   
         if(m_ControlledCharacter == m_Characters[0]){
             m_ControlledCharacter = m_Characters[1];
-            //cameraScript.m_Target = m_Characters[1].transform;
+            m_Camera.Follow = m_Characters[1].transform;
         }else 
         {
             m_ControlledCharacter = m_Characters[0];
-            //cameraScript.m_Target = m_Characters[0].transform;
+            m_Camera.Follow = m_Characters[0].transform;
         }
     }
 }
