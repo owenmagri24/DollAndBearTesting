@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 using UnityEngine.InputSystem;
 
 public class BallControl : MonoBehaviour
@@ -25,10 +26,19 @@ public class BallControl : MonoBehaviour
     private bool m_canThrow = true;
 
     [SerializeField]
-    private float camera_ZoomOut = 15f;
+    private CinemachineVirtualCamera m_Camera;
 
     [SerializeField]
-    private float camera_ZoomNormal = 10f;
+    private CinemachineTargetGroup m_TargetGroupCamera;
+
+    [SerializeField]
+    private CharacterController m_CharacterController;
+
+    [SerializeField]
+    private float m_ZoomOut = 15f;
+
+    [SerializeField]
+    private float m_ZoomNormal = 10f;
     
 
     private void Awake()
@@ -64,6 +74,9 @@ public class BallControl : MonoBehaviour
         this.transform.localPosition = new Vector3(0,0,0);
         DollBear.SetActive(true);
         m_canThrow = true;
+        m_Camera.m_Follow = DollBear.transform;
+        //Changes zoom back to normal
+        m_Camera.m_Lens.OrthographicSize = m_ZoomNormal;
 
     }
 
@@ -73,7 +86,8 @@ public class BallControl : MonoBehaviour
             return;
         m_isThrowing = true;
         m_DragStartPos = Camera.main.ScreenToWorldPoint(m_mousePosition);
-        Camera.main.orthographicSize = camera_ZoomOut;
+        //Zooms camera out
+        m_Camera.m_Lens.OrthographicSize = m_ZoomOut;
         
     }
 
@@ -114,15 +128,19 @@ public class BallControl : MonoBehaviour
         m_Cl.enabled = true;
         m_Rb.isKinematic = false;
         transform.SetParent(null);
-        Camera.main.orthographicSize = camera_ZoomNormal;
+        //Switch to TargetGroup
+        m_Camera.Follow = m_TargetGroupCamera.transform;
+        //Switch controller to bear
+        m_CharacterController.m_ControlledCharacter = m_CharacterController.m_Characters[1];
+        
     }
 
     void OnCancelThrow()
     {
-        Debug.Log("rightclick working");
         m_isThrowing = false;
 
         m_Lr.positionCount = 0;
+        m_Camera.m_Lens.OrthographicSize = m_ZoomNormal;
     }
 
     public Vector2[] Plot(Rigidbody2D rigidbody, Vector2 pos, Vector2 velocity, int steps)
