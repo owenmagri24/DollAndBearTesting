@@ -20,6 +20,7 @@ public class DollScript : CharacterBase
                 m_HoldingObject = true;
                 m_ObjectHit.transform.parent = m_BoxHolder;
                 m_ObjectHit.transform.position = m_BoxHolder.position;
+                m_ObjectHit.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
                 m_ObjectHit.GetComponent<Rigidbody2D>().isKinematic = true;
             }
             else if(m_HoldingObject == true)
