@@ -839,8 +839,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55b57fa7df8f4a74c8e931caebc0ece4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_CharacterBase: {fileID: 729124772}
   DollBear: {fileID: 165742807}
   Girl: {fileID: 729124769}
+  m_Power: 1
   m_Camera: {fileID: 1204470256}
   m_TargetGroupCamera: {fileID: 372543008}
   m_CharacterController: {fileID: 1426495369}
