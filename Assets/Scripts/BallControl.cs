@@ -9,8 +9,9 @@ public class BallControl : MonoBehaviour
     public GameObject DollBear;
     public GameObject Girl;
 
-    private float m_Power = 5f;
-
+    [SerializeField]
+    private float m_Power = 1f;
+    
     private Rigidbody2D m_Rb;
 
     private LineRenderer m_Lr;
@@ -33,7 +34,7 @@ public class BallControl : MonoBehaviour
 
     [SerializeField]
     private CharacterController m_CharacterController;
-
+ 
     [SerializeField]
     private float m_ZoomOut = 15f;
 
@@ -57,6 +58,8 @@ public class BallControl : MonoBehaviour
 
     private void Update() {
         //Physics2D.IgnoreCollision(Girl.GetComponent<Collider2D>() , this.GetComponent<Collider2D>());
+        //offset the ball from the mouse pos
+        OnMouseMove();
     }
 
     void OnCollisionEnter2D(Collision2D col)
@@ -88,17 +91,21 @@ public class BallControl : MonoBehaviour
         m_DragStartPos = Camera.main.ScreenToWorldPoint(m_mousePosition);
         //Zooms camera out
         m_Camera.m_Lens.OrthographicSize = m_ZoomOut;
-        
     }
 
     void OnMouseMove(InputValue value)
     {
         m_mousePosition = value.Get<Vector2>();
+        OnMouseMove();
+    }
 
+    void OnMouseMove()
+    {
         if (!m_isThrowing) return;
 
         Vector2 DragEndPos = Camera.main.ScreenToWorldPoint(m_mousePosition);
-        Vector2 _velocity = (DragEndPos - m_DragStartPos) * m_Power;
+        Vector2 pos = new Vector2(transform.position.x, transform.position.y);
+        Vector2 _velocity = (DragEndPos - pos) * m_Power;
 
         Vector2[] trajectory = Plot(m_Rb, (Vector2)transform.position, _velocity, 500);
 
@@ -117,7 +124,8 @@ public class BallControl : MonoBehaviour
         if (m_canThrow == false || m_isThrowing == false)
             return;
         Vector2 DragEndPos = Camera.main.ScreenToWorldPoint(m_mousePosition);
-        Vector2 _velocity = (DragEndPos - m_DragStartPos) * m_Power;
+        Vector2 pos = new Vector2(transform.position.x, transform.position.y);
+        Vector2 _velocity = (DragEndPos - pos) * m_Power;
 
 
         m_canThrow = false;
