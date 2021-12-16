@@ -889,6 +889,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DollBear: {fileID: 165742807}
   Girl: {fileID: 729124769}
+  m_Power: 1
   m_Camera: {fileID: 1204470256}
   m_TargetGroupCamera: {fileID: 368296559}
   m_CharacterController: {fileID: 1426495369}
@@ -4647,7 +4648,7 @@ GameObject:
   - component: {fileID: 1636391910}
   - component: {fileID: 1636391909}
   - component: {fileID: 1636391913}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: Box
   m_TagString: PushableObject
   m_Icon: {fileID: 0}
