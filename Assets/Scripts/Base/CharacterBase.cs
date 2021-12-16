@@ -14,7 +14,7 @@ public abstract class CharacterBase : MonoBehaviour
 
     [SerializeField]
     protected float m_JumpCheckToFloor = 1.01f;
-    
+
     [SerializeField]
     protected float m_Speed = 5f;
 

@@ -6,8 +6,7 @@ using UnityEngine.InputSystem;
 
 public class CharacterController : MonoBehaviour
 {
-    [SerializeField]
-    private CharacterBase m_ControlledCharacter = null;
+    public CharacterBase m_ControlledCharacter = null;
 
     public CharacterBase[] m_Characters = {};
 
