@@ -29,7 +29,7 @@ public abstract class CharacterBase : MonoBehaviour
 
     [SerializeField]
     protected Transform m_BoxHolder;
-    protected bool m_HoldingObject = false;
+    protected Transform m_HoldingObject = null;
 
     protected virtual void Awake()
     {
@@ -41,7 +41,6 @@ public abstract class CharacterBase : MonoBehaviour
         m_Rigidbody2D.velocity = new Vector2(direction.x * m_Speed, m_Rigidbody2D.velocity.y);
         //transform.Translate(direction * m_Speed * Time.deltaTime);
         Physics2D.queriesStartInColliders = false; //Avoids ray collisions from hitting own object
-        m_hit = Physics2D.Raycast(transform.position, Vector2.right*transform.localScale.x, m_InteractDistance);
     }
 
     public void OnMovement(InputValue value)
@@ -65,7 +64,8 @@ public abstract class CharacterBase : MonoBehaviour
     }
 
     protected bool IsGrounded(){
-        RaycastHit2D raycastHit2D = Physics2D.Raycast(transform.position, Vector2.down, m_JumpCheckToFloor, 1 << LayerMask.NameToLayer("Platforms"));
+        int layers = 1 << LayerMask.NameToLayer("Platforms") | 1 << LayerMask.NameToLayer("InteractableObject");
+        RaycastHit2D raycastHit2D = Physics2D.Raycast(transform.position, Vector2.down, m_JumpCheckToFloor, layers);
         return raycastHit2D.collider != null;
     }
 
@@ -75,16 +75,16 @@ public abstract class CharacterBase : MonoBehaviour
         Gizmos.DrawLine(transform.position, (Vector2)transform.position + Vector2.right * transform.localScale.x * m_InteractDistance);
     }
 
-    public virtual void OnInteract(){
-        if(m_hit.collider != null){
-            m_ObjectHit = m_hit.collider.gameObject;
+    public virtual void OnInteract()
+    {
+        if (m_HoldingObject == null)
+        {
+            int layers = 1 << LayerMask.NameToLayer("InteractableObject") | 1 << LayerMask.NameToLayer("Player");
+            m_hit = Physics2D.Raycast(transform.position, Vector2.right*transform.localScale.x, m_InteractDistance, layers);
 
-            
-            /* -- to be used when implementing interactable objects
-            if(m_ObjectHit.tag == "InteractableObject"){
-
+            if(m_hit.collider != null){
+                m_ObjectHit = m_hit.collider.gameObject;
             }
-            */
         }
     }
 

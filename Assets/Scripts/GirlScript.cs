@@ -9,7 +9,7 @@ public class GirlScript : CharacterBase
     {
         base.OnInteract();
         
-        if(m_ObjectHit.tag == "Bear"){
+        if(m_ObjectHit != null &&  m_ObjectHit.tag == "Bear"){
             m_ObjectHit.SetActive(false);
         }
         

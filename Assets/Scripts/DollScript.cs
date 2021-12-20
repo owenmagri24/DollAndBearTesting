@@ -5,30 +5,43 @@ using UnityEngine.InputSystem;
 
 public class DollScript : CharacterBase
 {
+    [SerializeField]
+    private BoxCollider2D m_BoxHolderCollider;
+    private BoxCollider2D objectHitCollider;
+
+    [SerializeField]
+    private PhysicsMaterial2D m_NoFrictionMaterial;
 
     public override void OnInteract(){
         base.OnInteract();
 
-
-        if(m_ObjectHit.tag == "PushableObject" && m_HoldingObject == false)
+        if(m_ObjectHit != null && m_ObjectHit.tag == "PushableObject" && m_HoldingObject == null)
         {
             //Picking up Pushable Objects
 
-            Physics2D.IgnoreCollision(m_hit.collider, m_BoxCollider2D); //ignores picked up object collider
-            m_HoldingObject = true;
+            // Physics2D.IgnoreCollision(m_hit.collider, m_BoxCollider2D); //ignores picked up object collider
+            m_HoldingObject = m_ObjectHit.transform;
             m_ObjectHit.transform.parent = m_BoxHolder;
             m_ObjectHit.transform.position = m_BoxHolder.position;
             m_ObjectHit.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
             m_ObjectHit.GetComponent<Rigidbody2D>().isKinematic = true;
+            objectHitCollider = m_ObjectHit.GetComponent<BoxCollider2D>();
+            objectHitCollider.enabled = false; //disable object collider
+            m_BoxHolderCollider.enabled = true; //enable boxholder collider
+            m_BoxHolderCollider.sharedMaterial = m_NoFrictionMaterial;
+            m_BoxHolderCollider.size = objectHitCollider.size; //set boxholder collider size to object collider size
         }
-        else if(m_HoldingObject == true)
+        else if(m_HoldingObject != null)
         {
             //Releasing Pushable Objects
-
-            Physics2D.IgnoreCollision(m_hit.collider, m_BoxCollider2D, false);//enables collision on release
-            m_HoldingObject = false;
+            m_BoxHolderCollider.sharedMaterial = null;
+            m_BoxHolderCollider.enabled = false; //disable boxholder collider
+            objectHitCollider.enabled = true; //enable object collider
+            // Physics2D.IgnoreCollision(m_hit.collider, m_BoxCollider2D, false);//enables collision on release
             m_ObjectHit.transform.parent = null;
             m_ObjectHit.GetComponent<Rigidbody2D>().isKinematic = false;
+            m_ObjectHit = null;
+            m_HoldingObject = null;
         }
     }
 }
