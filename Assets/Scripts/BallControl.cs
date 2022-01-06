@@ -37,7 +37,7 @@ public class BallControl : MonoBehaviour
 
     [SerializeField]
     private CharacterController m_CharacterController;
- 
+
     [SerializeField]
     private float m_ZoomOut = 15f;
 
@@ -60,8 +60,6 @@ public class BallControl : MonoBehaviour
     }
 
     private void Update() {
-        //Physics2D.IgnoreCollision(Girl.GetComponent<Collider2D>() , this.GetComponent<Collider2D>());
-        //offset the ball from the mouse pos
         OnMouseMove();
     }
 
