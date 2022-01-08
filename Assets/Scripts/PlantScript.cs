@@ -6,7 +6,7 @@ public class PlantScript : MonoBehaviour
 {
 
     [SerializeField]
-    GameObject m_TopCollision;
+    private GameObject m_TopCollision;
     private Vector3 m_TargetPosition;
 
     [SerializeField]
@@ -14,6 +14,9 @@ public class PlantScript : MonoBehaviour
 
     [SerializeField]
     private float m_LiftHeight;
+
+    [SerializeField]
+    private Animator m_Animator;
 
     void Start()
     {
@@ -30,8 +33,9 @@ public class PlantScript : MonoBehaviour
     }
 
     private void OnCollisionEnter2D(Collision2D other) {
-        if(other.gameObject.name == "Box")
+        if(other.gameObject.name == "Glass")
         {
+            m_Animator.SetBool("Growing", true);
             m_TargetPosition = new Vector3(m_TargetPosition.x, m_LiftHeight, m_TargetPosition.z);
         }
     }

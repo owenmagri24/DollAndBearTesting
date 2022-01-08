@@ -6,6 +6,9 @@ using UnityEngine.InputSystem;
 
 public class BallControl : MonoBehaviour
 {
+
+    [SerializeField]
+    private CharacterBase m_CharacterBase;
     public GameObject DollBear;
     public GameObject Girl;
 
@@ -34,7 +37,7 @@ public class BallControl : MonoBehaviour
 
     [SerializeField]
     private CharacterController m_CharacterController;
- 
+
     [SerializeField]
     private float m_ZoomOut = 15f;
 
@@ -57,8 +60,6 @@ public class BallControl : MonoBehaviour
     }
 
     private void Update() {
-        //Physics2D.IgnoreCollision(Girl.GetComponent<Collider2D>() , this.GetComponent<Collider2D>());
-        //offset the ball from the mouse pos
         OnMouseMove();
     }
 
@@ -138,6 +139,7 @@ public class BallControl : MonoBehaviour
         transform.SetParent(null);
         //Switch to TargetGroup
         m_Camera.Follow = m_TargetGroupCamera.transform;
+        m_CharacterBase.Stop();
         //Switch controller to bear
         m_CharacterController.m_ControlledCharacter = m_CharacterController.m_Characters[1];
         
