@@ -13,8 +13,13 @@ public class GameManager : MonoBehaviour
         {
             if(m_Characters[i].transform.position.y < -5){
                 //Player falls off the map and loses
-                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+                RestartScene();
             }
         }
+    }
+
+    private void RestartScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
