@@ -11,6 +11,9 @@ public class CharacterController : MonoBehaviour
     public CharacterBase[] m_Characters = {};
 
     [SerializeField]
+    private UIManager m_UIManager;
+
+    [SerializeField]
     private GameObject m_Ball;
 
     [SerializeField]
@@ -25,15 +28,13 @@ public class CharacterController : MonoBehaviour
     void OnInteract()
         => m_ControlledCharacter.OnInteract();
 
-    void Awake()
-    {
-        m_ControlledCharacter = m_Characters[0];
-        m_Characters[1].gameObject.SetActive(false);
+    private void Start() {
+        RestartCharacters();
     }
 
     private void Update() {
         //if bear is active, deactivate ball
-        if (m_Characters[1].gameObject.activeSelf)
+        if (m_Characters[1].gameObject.activeSelf || m_UIManager.IsPaused == true)
         {
             m_Ball.SetActive(false);
         }
@@ -49,12 +50,37 @@ public class CharacterController : MonoBehaviour
         m_ControlledCharacter.Stop();
 
         if(m_ControlledCharacter == m_Characters[0]){
-            m_ControlledCharacter = m_Characters[1];
-            m_Camera.Follow = m_Characters[1].transform;
+            ControlBear();
         }else 
         {
-            m_ControlledCharacter = m_Characters[0];
-            m_Camera.Follow = m_Characters[0].transform;
+            ControlGirl();
+        }
+    }
+
+    void ControlGirl(){
+        m_ControlledCharacter = m_Characters[0];
+        m_Camera.Follow = m_Characters[0].transform;
+    }
+
+    void ControlBear(){
+        m_ControlledCharacter = m_Characters[1];
+        m_Camera.Follow = m_Characters[1].transform;
+    }
+
+    public void RestartCharacters(){
+        //activate girl and reposition to respawn point;
+        ControlGirl();
+        m_Characters[1].gameObject.SetActive(false);
+        m_ControlledCharacter.gameObject.transform.position = m_ControlledCharacter.m_RespawnPoint;
+    }
+
+    void OnPause()
+    {
+        if(m_UIManager.IsPaused == false){
+            m_UIManager.PauseGame();
+        }
+        else{
+            m_UIManager.ResumeGame();
         }
     }
 }

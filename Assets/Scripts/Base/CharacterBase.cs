@@ -31,10 +31,22 @@ public abstract class CharacterBase : MonoBehaviour
     protected Transform m_BoxHolder;
     protected Transform m_HoldingObject = null;
 
+    protected CharacterController m_CharacterController;
+    public Vector2 m_RespawnPoint;
+    protected GameObject m_RespawnPointsList;
+    protected Transform m_StartingPoint;
+
     protected virtual void Awake()
     {
         m_Rigidbody2D = GetComponent<Rigidbody2D>();
         m_BoxCollider2D = GetComponent<Collider2D>();
+        m_CharacterController = GameObject.Find("PlayerControls").GetComponent<CharacterController>();
+        m_StartingPoint = GameObject.Find("RespawnPoint1").GetComponent<Transform>();
+        m_RespawnPointsList = GameObject.Find("RespawnPoints");
+    }
+
+    protected void Start() {
+        m_RespawnPoint = new Vector2(m_StartingPoint.position.x, m_StartingPoint.position.y);
     }
 
     protected virtual void FixedUpdate(){
@@ -59,7 +71,7 @@ public abstract class CharacterBase : MonoBehaviour
 
     public void OnJump(){
         if(IsGrounded()){
-            m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
+            m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce), ForceMode2D.Impulse);
         }
     }
 
@@ -87,9 +99,26 @@ public abstract class CharacterBase : MonoBehaviour
             }
         }
     }
-
     public void Stop()
     {
         direction = Vector2.zero;
+    }
+
+    private void OnCollisionEnter2D(Collision2D other) {
+        if(other.gameObject.name == "Cushion")
+        {
+            m_Rigidbody2D.AddForce(Vector2.up * m_JumpForce * 1.5f, ForceMode2D.Impulse);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other) {
+        if(other.transform.IsChildOf(m_RespawnPointsList.transform))
+        {
+            for(int i = 0; i < m_CharacterController.m_Characters.Length; i++) 
+            {
+                //change respawn points for both characters
+                m_CharacterController.m_Characters[i].m_RespawnPoint = new Vector2(other.transform.position.x, other.transform.position.y);
+            }
+        }
     }
 }
