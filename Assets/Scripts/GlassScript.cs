@@ -6,10 +6,10 @@ public class GlassScript : MonoBehaviour
 {
     [SerializeField]
     private Animator m_Animator;
+    private float delay = 0f;
 
     [SerializeField]
-    private float delay;
-
+    private AnimationClip m_DestroyAnim;
     private Rigidbody2D m_Rb;
 
     private void Awake() {
@@ -25,6 +25,7 @@ public class GlassScript : MonoBehaviour
 
     private IEnumerator Destroy(){
         m_Animator.SetBool("Destroy", true);
+        delay = m_DestroyAnim.length;
         yield return new WaitForSeconds(delay);
         Destroy(gameObject);
     }

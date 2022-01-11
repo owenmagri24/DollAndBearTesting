@@ -71,7 +71,7 @@ public abstract class CharacterBase : MonoBehaviour
 
     public void OnJump(){
         if(IsGrounded()){
-            m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
+            m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce), ForceMode2D.Impulse);
         }
     }
 
@@ -102,6 +102,13 @@ public abstract class CharacterBase : MonoBehaviour
     public void Stop()
     {
         direction = Vector2.zero;
+    }
+
+    private void OnCollisionEnter2D(Collision2D other) {
+        if(other.gameObject.name == "Cushion")
+        {
+            m_Rigidbody2D.AddForce(Vector2.up * m_JumpForce * 1.5f, ForceMode2D.Impulse);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
