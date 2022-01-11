@@ -5,6 +5,9 @@ using UnityEngine.InputSystem;
 
 public abstract class CharacterBase : MonoBehaviour
 {
+    [SerializeField]
+    protected Animator animator;
+
     protected Rigidbody2D m_Rigidbody2D;
 
     protected Collider2D m_BoxCollider2D;
@@ -49,10 +52,18 @@ public abstract class CharacterBase : MonoBehaviour
         m_RespawnPoint = new Vector2(m_StartingPoint.position.x, m_StartingPoint.position.y);
     }
 
+    public virtual void Update()
+    {
+        animator.SetBool("Running", direction.x != 0);
+        animator.SetBool("Grounded", IsGrounded());
+    }
+
     protected virtual void FixedUpdate(){
         m_Rigidbody2D.velocity = new Vector2(direction.x * m_Speed, m_Rigidbody2D.velocity.y);
         //transform.Translate(direction * m_Speed * Time.deltaTime);
         Physics2D.queriesStartInColliders = false; //Avoids ray collisions from hitting own object
+
+        animator.SetFloat("Vertical Velocity", m_Rigidbody2D.velocity.y);
     }
 
     public void OnMovement(InputValue value)

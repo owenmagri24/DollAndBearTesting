@@ -12,11 +12,17 @@ public class DollScript : CharacterBase
     [SerializeField]
     private PhysicsMaterial2D m_NoFrictionMaterial;
 
+    public override void Update()
+    {
+        base.Update();
+        animator.SetBool("Holding", m_HoldingObject != null);
+    }
+
     public override void OnInteract(){
         base.OnInteract();
 
         if(m_ObjectHit != null && m_ObjectHit.tag == "PushableObject" && m_HoldingObject == null)
-        {
+        { 
             //Picking up Pushable Objects
 
             // Physics2D.IgnoreCollision(m_hit.collider, m_BoxCollider2D); //ignores picked up object collider
@@ -30,6 +36,7 @@ public class DollScript : CharacterBase
             m_BoxHolderCollider.enabled = true; //enable boxholder collider
             m_BoxHolderCollider.sharedMaterial = m_NoFrictionMaterial;
             m_BoxHolderCollider.size = objectHitCollider.size; //set boxholder collider size to object collider size
+            
         }
         else if(m_HoldingObject != null)
         {

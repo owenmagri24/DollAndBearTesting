@@ -11,6 +11,7 @@ public class BallControl : MonoBehaviour
     private CharacterBase m_CharacterBase;
     public GameObject DollBear;
     public GameObject Girl;
+    public SpriteRenderer BearBallVisual;
 
     [SerializeField]
     private float m_Power = 1f;
@@ -43,6 +44,8 @@ public class BallControl : MonoBehaviour
 
     [SerializeField]
     private float m_ZoomNormal = 10f;
+
+    private float rotationSpeed = 5f;
     
 
     private void Awake()
@@ -61,6 +64,7 @@ public class BallControl : MonoBehaviour
 
     private void Update() {
         OnMouseMove();
+        this.gameObject.transform.Rotate(new Vector3(0, 0, rotationSpeed));
     }
 
     void OnCollisionEnter2D(Collision2D col)
@@ -81,11 +85,14 @@ public class BallControl : MonoBehaviour
         m_Camera.m_Follow = DollBear.transform;
         //Changes zoom back to normal
         m_Camera.m_Lens.OrthographicSize = m_ZoomNormal;
+        BearBallVisual.enabled = false;
 
     }
 
     void OnStartThrow()
     {
+        BearBallVisual.enabled = true;
+
         if (m_canThrow == false)
             return;
         m_isThrowing = true;
