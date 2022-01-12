@@ -11,7 +11,6 @@ public class GirlScript : CharacterBase
         
         if(m_ObjectHit != null &&  m_ObjectHit.tag == "Bear"){
             m_ObjectHit.SetActive(false);
-        }
-        
+        } 
     }
 }

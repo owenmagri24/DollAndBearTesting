@@ -45,8 +45,12 @@ public class BallControl : MonoBehaviour
     [SerializeField]
     private float m_ZoomNormal = 10f;
 
+    [SerializeField]
     private float rotationSpeed = 5f;
-    
+
+    [SerializeField]
+    protected Animator animator;
+
 
     private void Awake()
     {
@@ -60,6 +64,7 @@ public class BallControl : MonoBehaviour
     {
         m_Rb.isKinematic = true;
         m_Cl.enabled = false;
+        BearBallVisual.enabled = false;
     }
 
     private void Update() {
@@ -85,20 +90,21 @@ public class BallControl : MonoBehaviour
         m_Camera.m_Follow = DollBear.transform;
         //Changes zoom back to normal
         m_Camera.m_Lens.OrthographicSize = m_ZoomNormal;
+        //turns sprite off
         BearBallVisual.enabled = false;
 
     }
 
     void OnStartThrow()
     {
-        BearBallVisual.enabled = true;
-
         if (m_canThrow == false)
             return;
         m_isThrowing = true;
         m_DragStartPos = Camera.main.ScreenToWorldPoint(m_mousePosition);
         //Zooms camera out
         m_Camera.m_Lens.OrthographicSize = m_ZoomOut;
+
+        animator.SetBool("Throwing", true);
     }
 
     void OnMouseMove(InputValue value)
@@ -135,6 +141,8 @@ public class BallControl : MonoBehaviour
         Vector2 pos = new Vector2(transform.position.x, transform.position.y);
         Vector2 _velocity = (DragEndPos - pos) * m_Power;
 
+        //turns sprite off
+        BearBallVisual.enabled = true;
 
         m_canThrow = false;
         m_isThrowing = false;
@@ -149,7 +157,9 @@ public class BallControl : MonoBehaviour
         m_CharacterBase.Stop();
         //Switch controller to bear
         m_CharacterController.m_ControlledCharacter = m_CharacterController.m_Characters[1];
-        
+
+        animator.SetBool("Throwing", false);
+
     }
 
     void OnCancelThrow()
