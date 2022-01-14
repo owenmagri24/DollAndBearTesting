@@ -252,11 +252,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4bc806ee64997e439c7caf70d8701af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 0}
   m_JumpForce: 600
   m_JumpCheckToFloor: 1.01
   m_Speed: 7
   m_InteractDistance: 1
   m_BoxHolder: {fileID: 2120024535}
+  m_RespawnPoint: {x: 0, y: 0}
   m_BoxHolderCollider: {fileID: 2120024536}
   m_NoFrictionMaterial: {fileID: 6200000, guid: 224e778fdf165ec4089766e85abd78e2, type: 2}
 --- !u!50 &165742811
@@ -839,11 +841,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cece47a8b8ba44d07872c6d90213f9a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 0}
   m_JumpForce: 500
   m_JumpCheckToFloor: 1.01
   m_Speed: 5
   m_InteractDistance: 1
   m_BoxHolder: {fileID: 1016252543}
+  m_RespawnPoint: {x: 0, y: 0}
 --- !u!70 &729124773
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -1261,12 +1265,15 @@ MonoBehaviour:
   m_CharacterBase: {fileID: 0}
   DollBear: {fileID: 165742807}
   Girl: {fileID: 729124769}
+  BearBallVisual: {fileID: 0}
   m_Power: 1
   m_Camera: {fileID: 1204470256}
   m_TargetGroupCamera: {fileID: 368296559}
   m_CharacterController: {fileID: 1426495369}
   m_ZoomOut: 15
   m_ZoomNormal: 10
+  rotationSpeed: 5
+  animator: {fileID: 0}
 --- !u!114 &1164772222
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4893,6 +4900,7 @@ MonoBehaviour:
   m_Characters:
   - {fileID: 729124772}
   - {fileID: 165742810}
+  m_UIManager: {fileID: 0}
   m_Ball: {fileID: 1164772219}
   m_Camera: {fileID: 1204470256}
 --- !u!114 &1426495370
