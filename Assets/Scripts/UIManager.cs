@@ -1,19 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject m_PauseMenu;
+    [SerializeField] private GameObject m_PauseMenu;
+    [SerializeField] private GameObject m_SettingsMenu;
+    [SerializeField] private GameObject m_ControlsMenu;
+    [SerializeField] private CharacterController m_CharacterController;
 
-    [SerializeField]
-    private CharacterController m_CharacterController;
-
+    
     public bool IsPaused;
 
     private void Start() {
         IsPaused = false;
+        Time.timeScale = 1f;
     }
 
     public void PauseGame(){
@@ -33,5 +35,32 @@ public class UIManager : MonoBehaviour
         m_PauseMenu.SetActive(false);
         Time.timeScale = 1f;
         IsPaused = false;
+    }
+
+    public void MainMenu()
+    {
+        SceneManager.LoadScene("TitleMenu");
+    }
+
+    public void SettingsMenu()
+    {
+        m_SettingsMenu.SetActive(true);
+        m_ControlsMenu.SetActive(false);
+    }
+
+    public void ControlsMenu()
+    {
+        m_ControlsMenu.SetActive(true);
+    }
+
+    public void StartGame()
+    {
+        //change scenename later
+        SceneManager.LoadScene("OwenTesting");
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 }

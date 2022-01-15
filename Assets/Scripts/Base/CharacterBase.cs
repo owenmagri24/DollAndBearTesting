@@ -120,6 +120,18 @@ public abstract class CharacterBase : MonoBehaviour
         {
             m_Rigidbody2D.AddForce(Vector2.up * m_JumpForce * 1.5f, ForceMode2D.Impulse);
         }
+        else if(other.gameObject.name == "MovingCart")
+        {
+            transform.parent = other.transform;
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D other) 
+    {
+        if(other.gameObject.name == "MovingCart")
+        {
+            transform.parent = null;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other) {

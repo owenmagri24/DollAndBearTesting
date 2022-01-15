@@ -104,7 +104,24 @@ public class BallControl : MonoBehaviour
         //Zooms camera out
         m_Camera.m_Lens.OrthographicSize = m_ZoomOut;
 
+        //Stop girl movement
+        Girl.GetComponent<GirlScript>().StopMovement();
+
+
         animator.SetBool("Throwing", true);
+    }
+
+    void OnCancelThrow()
+    {
+        m_isThrowing = false;
+
+        m_Lr.positionCount = 0;
+        m_Camera.m_Lens.OrthographicSize = m_ZoomNormal;
+
+        //enable girl movement
+        Girl.GetComponent<GirlScript>().EnableMovement();
+
+        animator.SetBool("Throwing", false);
     }
 
     void OnMouseMove(InputValue value)
@@ -141,7 +158,7 @@ public class BallControl : MonoBehaviour
         Vector2 pos = new Vector2(transform.position.x, transform.position.y);
         Vector2 _velocity = (DragEndPos - pos) * m_Power;
 
-        //turns sprite off
+        //turns sprite on
         BearBallVisual.enabled = true;
 
         m_canThrow = false;
@@ -155,6 +172,8 @@ public class BallControl : MonoBehaviour
         //Switch to TargetGroup
         m_Camera.Follow = m_TargetGroupCamera.transform;
         m_CharacterBase.Stop();
+        //enable girl movement
+        Girl.GetComponent<GirlScript>().EnableMovement();
         //Switch controller to bear
         m_CharacterController.m_ControlledCharacter = m_CharacterController.m_Characters[1];
 
@@ -162,13 +181,6 @@ public class BallControl : MonoBehaviour
 
     }
 
-    void OnCancelThrow()
-    {
-        m_isThrowing = false;
-
-        m_Lr.positionCount = 0;
-        m_Camera.m_Lens.OrthographicSize = m_ZoomNormal;
-    }
 
     public Vector2[] Plot(Rigidbody2D rigidbody, Vector2 pos, Vector2 velocity, int steps)
     {
