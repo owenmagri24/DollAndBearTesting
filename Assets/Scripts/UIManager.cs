@@ -56,7 +56,7 @@ public class UIManager : MonoBehaviour
     public void StartGame()
     {
         //change scenename later
-        SceneManager.LoadScene("OwenTesting");
+        SceneManager.LoadScene("ShawnTesting");
     }
 
     public void QuitGame()
