@@ -46,8 +46,8 @@ public abstract class CharacterBase : MonoBehaviour
         m_Rigidbody2D = GetComponent<Rigidbody2D>();
         m_BoxCollider2D = GetComponent<Collider2D>();
         m_CharacterController = GameObject.Find("PlayerControls").GetComponent<CharacterController>();
-        m_StartingPoint = GameObject.Find("RespawnPoint1").GetComponent<Transform>();
         m_RespawnPointsList = GameObject.Find("RespawnPoints");
+        m_StartingPoint = m_RespawnPointsList.transform.GetChild(0);
         m_CushionsList = GameObject.Find("CushionsParent");
     }
 
@@ -145,6 +145,10 @@ public abstract class CharacterBase : MonoBehaviour
                 //change respawn points for both characters
                 m_CharacterController.m_Characters[i].m_RespawnPoint = new Vector2(other.transform.position.x, other.transform.position.y);
             }
+        }
+        else if(other.gameObject.tag == "DeathArea")
+        {
+            m_CharacterController.RestartCharacters();
         }
     }
 }

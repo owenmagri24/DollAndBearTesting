@@ -7,9 +7,8 @@ TagManager:
   - PushableObject
   - Water
   - Bear
-  - hittable
-  - Cushion
   - MovingCart
+  - DeathArea
   layers:
   - Default
   - TransparentFX
