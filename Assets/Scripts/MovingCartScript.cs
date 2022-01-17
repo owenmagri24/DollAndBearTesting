@@ -19,15 +19,17 @@ public class MovingCartScript : MonoBehaviour
     }
 
     private void Update() {
-        transform.Translate(m_Direction * m_Speed * Time.deltaTime); 
-
-        if(transform.position.x <= m_StartingPos.x - m_Offset)
+        transform.Translate(m_Direction * m_Speed * Time.deltaTime);
+        //Vector3 CartScale = this.gameObject.transform.localScale;
+        if (transform.position.x <= m_StartingPos.x - m_Offset)
         {
             m_Direction = Vector2.right;
+            //CartScale.x = -1;
         }
         else if(transform.position.x >= m_StartingPos.x + m_Offset)
         {
             m_Direction = Vector2.left;
+            //CartScale.x = -1;
         }
 
     }

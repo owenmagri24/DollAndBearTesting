@@ -17,7 +17,7 @@ public abstract class CharacterBase : MonoBehaviour
 
     [SerializeField]
     protected float m_JumpCheckToFloor = 1.01f;
-    
+
     [SerializeField]
     protected float m_Speed = 5f;
 
@@ -58,7 +58,7 @@ public abstract class CharacterBase : MonoBehaviour
         animator.SetBool("Grounded", IsGrounded());
     }
 
-    protected virtual void FixedUpdate(){
+    protected virtual void FixedUpdate() {
         m_Rigidbody2D.velocity = new Vector2(direction.x * m_Speed, m_Rigidbody2D.velocity.y);
         //transform.Translate(direction * m_Speed * Time.deltaTime);
         Physics2D.queriesStartInColliders = false; //Avoids ray collisions from hitting own object
@@ -71,22 +71,22 @@ public abstract class CharacterBase : MonoBehaviour
         direction = value.Get<Vector2>();
         //character flipping
         Vector3 characterScale = transform.localScale;
-        if(direction.x < 0){
+        if (direction.x < 0) {
             characterScale.x = -1;
         }
-        if(direction.x > 0){
+        if (direction.x > 0) {
             characterScale.x = 1;
         }
         transform.localScale = characterScale;
     }
 
-    public void OnJump(){
-        if(IsGrounded()){
+    public void OnJump() {
+        if (IsGrounded()) {
             m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce), ForceMode2D.Impulse);
         }
     }
 
-    protected bool IsGrounded(){
+    protected bool IsGrounded() {
         int layers = 1 << LayerMask.NameToLayer("Platforms") | 1 << LayerMask.NameToLayer("InteractableObject");
         RaycastHit2D raycastHit2D = Physics2D.Raycast(transform.position, Vector2.down, m_JumpCheckToFloor, layers);
         return raycastHit2D.collider != null;
@@ -103,9 +103,9 @@ public abstract class CharacterBase : MonoBehaviour
         if (m_HoldingObject == null)
         {
             int layers = 1 << LayerMask.NameToLayer("InteractableObject") | 1 << LayerMask.NameToLayer("Player");
-            m_hit = Physics2D.Raycast(transform.position, Vector2.right*transform.localScale.x, m_InteractDistance, layers);
+            m_hit = Physics2D.Raycast(transform.position, Vector2.right * transform.localScale.x, m_InteractDistance, layers);
 
-            if(m_hit.collider != null){
+            if (m_hit.collider != null) {
                 m_ObjectHit = m_hit.collider.gameObject;
             }
         }
@@ -116,11 +116,11 @@ public abstract class CharacterBase : MonoBehaviour
     }
 
     private void OnCollisionEnter2D(Collision2D other) {
-        if(other.gameObject.name == "Cushion")
+        if (other.gameObject.tag == "Cushion")
         {
             m_Rigidbody2D.AddForce(Vector2.up * m_JumpForce * 1.5f, ForceMode2D.Impulse);
         }
-        else if(other.gameObject.name == "MovingCart")
+        else if(other.gameObject.tag == "MovingCart")
         {
             transform.parent = other.transform;
         }
