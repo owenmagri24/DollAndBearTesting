@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     private void Update() {
         for (int i = 0; i < m_Characters.Length; i++)
         {
-            if(m_Characters[i].transform.position.y < -5){
+            if(m_Characters[i].transform.position.y < -20){
                 //Player falls off the map and loses
                 RestartScene();
             }
