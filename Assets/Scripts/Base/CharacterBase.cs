@@ -37,6 +37,8 @@ public abstract class CharacterBase : MonoBehaviour
     protected CharacterController m_CharacterController;
     public Vector2 m_RespawnPoint;
     protected GameObject m_RespawnPointsList;
+
+    protected GameObject m_CushionsList;
     protected Transform m_StartingPoint;
 
     protected virtual void Awake()
@@ -46,6 +48,7 @@ public abstract class CharacterBase : MonoBehaviour
         m_CharacterController = GameObject.Find("PlayerControls").GetComponent<CharacterController>();
         m_StartingPoint = GameObject.Find("RespawnPoint1").GetComponent<Transform>();
         m_RespawnPointsList = GameObject.Find("RespawnPoints");
+        m_CushionsList = GameObject.Find("CushionsParent");
     }
 
     protected void Start() {
@@ -116,7 +119,7 @@ public abstract class CharacterBase : MonoBehaviour
     }
 
     private void OnCollisionEnter2D(Collision2D other) {
-        if (other.gameObject.tag == "Cushion")
+        if (other.gameObject.transform.IsChildOf(m_CushionsList.transform))
         {
             m_Rigidbody2D.AddForce(Vector2.up * m_JumpForce * 1.5f, ForceMode2D.Impulse);
         }
