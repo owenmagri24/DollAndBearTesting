@@ -19,6 +19,8 @@ public class CharacterController : MonoBehaviour
     [SerializeField]
     private CinemachineVirtualCamera m_Camera;
 
+    private BallControl m_BallControl;
+
     void OnMovement(InputValue value)
         => m_ControlledCharacter.OnMovement(value);
 
@@ -28,6 +30,9 @@ public class CharacterController : MonoBehaviour
     void OnInteract()
         => m_ControlledCharacter.OnInteract();
 
+    private void Awake() {
+        m_BallControl = m_Ball.GetComponent<BallControl>();
+    }
     private void Start() {
         RestartCharacters();
     }
@@ -68,10 +73,16 @@ public class CharacterController : MonoBehaviour
     }
 
     public void RestartCharacters(){
-        //activate girl and reposition to respawn point;
+        //activate girl
         ControlGirl();
-        m_Characters[1].gameObject.SetActive(false);
-        m_ControlledCharacter.gameObject.transform.position = m_ControlledCharacter.m_RespawnPoint;
+        m_Characters[1].gameObject.SetActive(false); //deactivate bear
+        m_ControlledCharacter.gameObject.transform.position = m_ControlledCharacter.m_RespawnPoint; //teleport to latest respawn point
+
+        if(m_Ball.transform.parent == null) //if ball is in the air
+        {
+            m_BallControl.ResetBall(); //reset ball
+            m_Camera.m_Lens.OrthographicSize = m_BallControl.m_ZoomNormal; //normal zoom
+        }
     }
 
     void OnPause()

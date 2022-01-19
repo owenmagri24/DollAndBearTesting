@@ -26,9 +26,9 @@ public class BallControl : MonoBehaviour
 
     private Vector2 m_mousePosition;
 
-    private bool m_isThrowing = false;
+    public bool m_isThrowing = false;
 
-    private bool m_canThrow = true;
+    public bool m_canThrow = false;
 
     [SerializeField]
     private CinemachineVirtualCamera m_Camera;
@@ -40,10 +40,10 @@ public class BallControl : MonoBehaviour
     private CharacterController m_CharacterController;
 
     [SerializeField]
-    private float m_ZoomOut = 15f;
+    public float m_ZoomOut = 15f;
 
     [SerializeField]
-    private float m_ZoomNormal = 10f;
+    public float m_ZoomNormal = 10f;
 
     [SerializeField]
     private float rotationSpeed = 5f;
@@ -51,12 +51,15 @@ public class BallControl : MonoBehaviour
     [SerializeField]
     protected Animator animator;
 
+    private AudioManager m_AudioManager;
+
 
     private void Awake()
     {
         m_Rb = GetComponent<Rigidbody2D>();
         m_Lr = GetComponent<LineRenderer>();
         m_Cl = GetComponent<CircleCollider2D>();
+        m_AudioManager = FindObjectOfType<AudioManager>();
     }
 
     // Start is called before the first frame update
@@ -74,25 +77,26 @@ public class BallControl : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D col)
     {
-        /*
-        Debug.Log("Points colliding: " + col.contacts.Length);
-        Debug.Log("First point that collided: " + col.contacts[0].point);
-        */
         DollBear.transform.position = transform.position;
-        transform.SetParent(Girl.transform);
 
-        m_Rb.isKinematic = true;
-        m_Cl.enabled = false;
-        m_Rb.velocity = Vector2.zero;
-        this.transform.localPosition = new Vector3(0,0,0);
+        ResetBall();
+        m_AudioManager.StopPlay("BearThrow");//stop bear throw sound if its still playing
+
         DollBear.SetActive(true);
-        m_canThrow = true;
         m_Camera.m_Follow = DollBear.transform;
-        //Changes zoom back to normal
-        m_Camera.m_Lens.OrthographicSize = m_ZoomNormal;
-        //turns sprite off
-        BearBallVisual.enabled = false;
+        m_Camera.m_Lens.OrthographicSize = m_ZoomNormal; //Changes zoom back to normal
+        BearBallVisual.enabled = false; //turns sprite off
+    }
 
+    public void ResetBall()
+    {
+        transform.SetParent(Girl.transform); //set girl as parent
+        m_Rb.isKinematic = true; //set to kinematic
+        m_Rb.velocity = Vector2.zero; //stop velocity
+        m_Cl.enabled = false; //disable collider
+        transform.localPosition = new Vector3(0,0,0);
+        m_canThrow = true; 
+        BearBallVisual.enabled = false; //turns sprite off
     }
 
     void OnStartThrow()
@@ -161,6 +165,8 @@ public class BallControl : MonoBehaviour
         //turns sprite on
         BearBallVisual.enabled = true;
 
+
+
         m_canThrow = false;
         m_isThrowing = false;
 
@@ -178,7 +184,7 @@ public class BallControl : MonoBehaviour
         m_CharacterController.m_ControlledCharacter = m_CharacterController.m_Characters[1];
 
         animator.SetBool("Throwing", false);
-
+        m_AudioManager.Play("BearThrow");
     }
 
 
