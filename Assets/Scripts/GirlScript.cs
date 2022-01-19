@@ -36,7 +36,8 @@ public class GirlScript : CharacterBase
     }
 
 
-    private void OnTriggerEnter2D(Collider2D other) {
+    protected override void OnTriggerEnter2D(Collider2D other) {
+        base.OnTriggerEnter2D(other);
         if(other.gameObject.GetComponent<SleepingBearScript>())
         {
             m_SleepingBearScript.ToggleText();

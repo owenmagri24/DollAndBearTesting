@@ -51,12 +51,15 @@ public class BallControl : MonoBehaviour
     [SerializeField]
     protected Animator animator;
 
+    private AudioManager m_AudioManager;
+
 
     private void Awake()
     {
         m_Rb = GetComponent<Rigidbody2D>();
         m_Lr = GetComponent<LineRenderer>();
         m_Cl = GetComponent<CircleCollider2D>();
+        m_AudioManager = FindObjectOfType<AudioManager>();
     }
 
     // Start is called before the first frame update
@@ -77,6 +80,7 @@ public class BallControl : MonoBehaviour
         DollBear.transform.position = transform.position;
 
         ResetBall();
+        m_AudioManager.StopPlay("BearThrow");//stop bear throw sound if its still playing
 
         DollBear.SetActive(true);
         m_Camera.m_Follow = DollBear.transform;
@@ -161,6 +165,8 @@ public class BallControl : MonoBehaviour
         //turns sprite on
         BearBallVisual.enabled = true;
 
+
+
         m_canThrow = false;
         m_isThrowing = false;
 
@@ -178,7 +184,7 @@ public class BallControl : MonoBehaviour
         m_CharacterController.m_ControlledCharacter = m_CharacterController.m_Characters[1];
 
         animator.SetBool("Throwing", false);
-
+        m_AudioManager.Play("BearThrow");
     }
 
 

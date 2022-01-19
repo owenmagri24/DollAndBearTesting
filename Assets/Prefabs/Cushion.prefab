@@ -93,7 +93,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6739c4add228c466ba9b2f5bcf45efa2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_CushionsParent: {fileID: 0}
 --- !u!1 &9032745628954973279
 GameObject:
   m_ObjectHideFlags: 0
