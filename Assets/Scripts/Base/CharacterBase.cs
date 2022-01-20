@@ -115,14 +115,16 @@ public abstract class CharacterBase : MonoBehaviour
 
     public virtual void OnInteract()
     {
+        m_ObjectHit = null;
         if (m_HoldingObject == null)
         {
             int layers = 1 << LayerMask.NameToLayer("InteractableObject") | 1 << LayerMask.NameToLayer("Player");
-            m_hit = Physics2D.Raycast((transform.position), Vector2.right * transform.localScale.x, m_InteractDistance, layers);
-
+            m_hit = Physics2D.Raycast(transform.position, Vector2.right * transform.localScale.x, m_InteractDistance, layers);
+            
             if (m_hit.collider != null) {
                 m_ObjectHit = m_hit.collider.gameObject;
             }
+            Debug.Log(m_ObjectHit);
         }
     }
     public void Stop()
