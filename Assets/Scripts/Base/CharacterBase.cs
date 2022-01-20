@@ -46,10 +46,10 @@ public abstract class CharacterBase : MonoBehaviour
     {
         m_Rigidbody2D = GetComponent<Rigidbody2D>();
         m_BoxCollider2D = GetComponent<Collider2D>();
-        m_AudioManager = FindObjectOfType<AudioManager>();
         m_RespawnPointManager = FindObjectOfType<RespawnPointManager>();
         m_CharacterController = GameObject.Find("PlayerControls").GetComponent<CharacterController>();
         m_CushionsList = GameObject.Find("CushionsParent");
+        m_AudioManager = AudioManager.instance;
     }
 
     protected void Start() {

@@ -7,11 +7,10 @@ public class AudioManager : MonoBehaviour
 
     public Sound[] sounds;
 
-    //public AudioMixer audioMixer;
+    public AudioMixer audioMixer;
 
     public static AudioManager instance; //using instance so there is not more than 1 Audiomanager
 
-    
 
     void Awake() {
         if(instance == null)
@@ -49,7 +48,11 @@ public class AudioManager : MonoBehaviour
             Debug.LogWarning("Sound: " + name + " not found!");
             return;
         }
-            
+        if(s.source == null)
+        {
+            Debug.LogWarning("Audio Source is null");
+            return;
+        }
         s.source.Play();
     }
 
@@ -67,17 +70,11 @@ public class AudioManager : MonoBehaviour
 
     public void SetMainVolume(float volume)
     {
-        foreach(Sound s in sounds)
-        {
-            s.audioMixer.SetFloat("volume",volume);
-        }
+        audioMixer.SetFloat("musicvolume",volume);
     }
 
-    public void SetSFXVolume(float volume)
+    public void SetSFXVolume(float sfxvolume)
     {
-        foreach(Sound s in sounds)
-        {
-            s.audioMixer.SetFloat("volume",volume);
-        }
+        audioMixer.SetFloat("effectsvolume", sfxvolume);
     }
 }
