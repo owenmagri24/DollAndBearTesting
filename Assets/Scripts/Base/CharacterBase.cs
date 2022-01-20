@@ -144,7 +144,7 @@ public abstract class CharacterBase : MonoBehaviour
 
     private void OnCollisionExit2D(Collision2D other) 
     {
-        if(other.gameObject.name == "MovingCart")
+        if(other.gameObject.tag == "MovingCart")
         {
             transform.parent = null;
         }

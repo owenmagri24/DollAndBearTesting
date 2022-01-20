@@ -8,7 +8,6 @@ public class GirlScript : CharacterBase
     [SerializeField]
     private BallControl m_BallControl;
 
-    [SerializeField]
     private SleepingBearScript m_SleepingBearScript;
 
     [SerializeField]
@@ -40,6 +39,7 @@ public class GirlScript : CharacterBase
         base.OnTriggerEnter2D(other);
         if(other.gameObject.GetComponent<SleepingBearScript>())
         {
+            m_SleepingBearScript = other.gameObject.GetComponent<SleepingBearScript>();
             m_SleepingBearScript.ToggleText();
         }
     }
