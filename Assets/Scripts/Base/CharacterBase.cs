@@ -131,7 +131,12 @@ public abstract class CharacterBase : MonoBehaviour
     }
 
     private void OnCollisionEnter2D(Collision2D other) {
-        if (other.gameObject.transform.IsChildOf(m_CushionsList.transform))
+        if (other.gameObject.transform.IsChildOf(m_CushionsList.transform) && (other.gameObject.name == ("CushionBigBounce")))
+        {
+            m_Rigidbody2D.AddForce(Vector2.up * m_JumpForce * 2.5f, ForceMode2D.Impulse);
+            m_AudioManager.Play("PillowJump");
+        }
+        else if(other.gameObject.transform.IsChildOf(m_CushionsList.transform))
         {
             m_Rigidbody2D.AddForce(Vector2.up * m_JumpForce * 1.5f, ForceMode2D.Impulse);
             m_AudioManager.Play("PillowJump");
