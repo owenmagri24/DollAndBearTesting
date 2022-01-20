@@ -7,7 +7,11 @@ public class AudioManager : MonoBehaviour
 
     public Sound[] sounds;
 
+    //public AudioMixer audioMixer;
+
     public static AudioManager instance; //using instance so there is not more than 1 Audiomanager
+
+    
 
     void Awake() {
         if(instance == null)
@@ -25,6 +29,7 @@ public class AudioManager : MonoBehaviour
             s.source = gameObject.AddComponent<AudioSource>();
             s.source.clip = s.clip;
 
+            s.source.outputAudioMixerGroup = s.mixerGroup;
             s.source.volume = s.volume;
             s.source.pitch = s.pitch;
             s.source.loop = s.loop;
@@ -58,5 +63,21 @@ public class AudioManager : MonoBehaviour
         }
             
         s.source.Stop();
+    }
+
+    public void SetMainVolume(float volume)
+    {
+        foreach(Sound s in sounds)
+        {
+            s.audioMixer.SetFloat("volume",volume);
+        }
+    }
+
+    public void SetSFXVolume(float volume)
+    {
+        foreach(Sound s in sounds)
+        {
+            s.audioMixer.SetFloat("volume",volume);
+        }
     }
 }
