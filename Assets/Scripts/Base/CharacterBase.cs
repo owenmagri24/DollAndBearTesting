@@ -110,19 +110,20 @@ public abstract class CharacterBase : MonoBehaviour
     protected void OnDrawGizmos() {
         Gizmos.color = Color.yellow;
 
-        Gizmos.DrawLine(transform.position, (Vector2)transform.position + Vector2.right * transform.localScale.x * m_InteractDistance);
+        Gizmos.DrawLine(new Vector2(transform.position.x, transform.position.y - 0.5f), (Vector2)transform.position + Vector2.right * transform.localScale.x * m_InteractDistance);
     }
 
     public virtual void OnInteract()
-    {
+    {      
         if (m_HoldingObject == null)
         {
             int layers = 1 << LayerMask.NameToLayer("InteractableObject") | 1 << LayerMask.NameToLayer("Player");
-            m_hit = Physics2D.Raycast((transform.position), Vector2.right * transform.localScale.x, m_InteractDistance, layers);
-
+            m_hit = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y -0.5f), Vector2.right * transform.localScale.x, m_InteractDistance, layers);
+            
             if (m_hit.collider != null) {
                 m_ObjectHit = m_hit.collider.gameObject;
             }
+            Debug.Log(m_ObjectHit);
         }
     }
     public void Stop()
@@ -131,7 +132,12 @@ public abstract class CharacterBase : MonoBehaviour
     }
 
     private void OnCollisionEnter2D(Collision2D other) {
-        if (other.gameObject.transform.IsChildOf(m_CushionsList.transform))
+        if (other.gameObject.transform.IsChildOf(m_CushionsList.transform) && (other.gameObject.name == ("CushionBigBounce")))
+        {
+            m_Rigidbody2D.AddForce(Vector2.up * m_JumpForce * 2.5f, ForceMode2D.Impulse);
+            m_AudioManager.Play("PillowJump");
+        }
+        else if(other.gameObject.transform.IsChildOf(m_CushionsList.transform))
         {
             m_Rigidbody2D.AddForce(Vector2.up * m_JumpForce * 1.5f, ForceMode2D.Impulse);
             m_AudioManager.Play("PillowJump");
@@ -167,6 +173,7 @@ public abstract class CharacterBase : MonoBehaviour
 
         else if(other.gameObject.tag == "DeathArea")
         {
+            Debug.Log("hello");
             m_CharacterController.RestartCharacters();
         }
     }

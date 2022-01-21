@@ -24,7 +24,7 @@ public class GirlScript : CharacterBase
     {
         base.OnInteract();
         
-        if(m_ObjectHit != null &&  m_ObjectHit.tag == "Bear"){
+        if (m_ObjectHit != null &&  m_ObjectHit.tag == "Bear"){
             m_ObjectHit.SetActive(false);
         }
         else if(m_ObjectHit != null &&  m_ObjectHit.name == "SleepingBear")
@@ -32,6 +32,7 @@ public class GirlScript : CharacterBase
             m_BallControl.m_canThrow = true;
             Destroy(m_ObjectHit);
         }
+        m_ObjectHit = null;
     }
 
 
