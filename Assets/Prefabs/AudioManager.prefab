@@ -44,27 +44,44 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
+  - name: BackgroundMusic
+    clip: {fileID: 8300000, guid: 64dcc2f1322a7b4488a0b46926b23f2d, type: 3}
+    audioMixer: {fileID: 24100000, guid: b9ee9c352e05340ca88b21611ba658b7, type: 2}
+    mixerGroup: {fileID: -1705147840413781519, guid: b9ee9c352e05340ca88b21611ba658b7, type: 2}
+    volume: 1
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
   - name: Checkpoint
     clip: {fileID: 8300000, guid: ea16894cb118b894c9e51dc93adcb676, type: 3}
-    volume: 0.1
+    audioMixer: {fileID: 24100000, guid: b9ee9c352e05340ca88b21611ba658b7, type: 2}
+    mixerGroup: {fileID: 6452605443232093266, guid: b9ee9c352e05340ca88b21611ba658b7, type: 2}
+    volume: 1
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: PlayerJump
     clip: {fileID: 8300000, guid: d9dc023416739fd418e30bc0afa69a5f, type: 3}
-    volume: 0.4
+    audioMixer: {fileID: 24100000, guid: b9ee9c352e05340ca88b21611ba658b7, type: 2}
+    mixerGroup: {fileID: 6452605443232093266, guid: b9ee9c352e05340ca88b21611ba658b7, type: 2}
+    volume: 1
     pitch: 1
     loop: 0
-    source: {fileID: 0}
-  - name: BackgroundMusic
-    clip: {fileID: 8300000, guid: 64dcc2f1322a7b4488a0b46926b23f2d, type: 3}
-    volume: 0.1
-    pitch: 1
-    loop: 1
     source: {fileID: 0}
   - name: PillowJump
     clip: {fileID: 8300000, guid: dacb13db263de27449fb7f670eea3d28, type: 3}
-    volume: 0.4
+    audioMixer: {fileID: 24100000, guid: b9ee9c352e05340ca88b21611ba658b7, type: 2}
+    mixerGroup: {fileID: 6452605443232093266, guid: b9ee9c352e05340ca88b21611ba658b7, type: 2}
+    volume: 1
     pitch: 1
     loop: 0
     source: {fileID: 0}
+  - name: BearThrow
+    clip: {fileID: 8300000, guid: 403899b571cf9fa4791d3a255b8ecdbc, type: 3}
+    audioMixer: {fileID: 24100000, guid: b9ee9c352e05340ca88b21611ba658b7, type: 2}
+    mixerGroup: {fileID: 6452605443232093266, guid: b9ee9c352e05340ca88b21611ba658b7, type: 2}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  audioMixer: {fileID: 24100000, guid: b9ee9c352e05340ca88b21611ba658b7, type: 2}

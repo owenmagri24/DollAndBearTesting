@@ -7,7 +7,10 @@ public class AudioManager : MonoBehaviour
 
     public Sound[] sounds;
 
+    public AudioMixer audioMixer;
+
     public static AudioManager instance; //using instance so there is not more than 1 Audiomanager
+
 
     void Awake() {
         if(instance == null)
@@ -25,6 +28,7 @@ public class AudioManager : MonoBehaviour
             s.source = gameObject.AddComponent<AudioSource>();
             s.source.clip = s.clip;
 
+            s.source.outputAudioMixerGroup = s.mixerGroup;
             s.source.volume = s.volume;
             s.source.pitch = s.pitch;
             s.source.loop = s.loop;
@@ -44,7 +48,11 @@ public class AudioManager : MonoBehaviour
             Debug.LogWarning("Sound: " + name + " not found!");
             return;
         }
-            
+        if(s.source == null)
+        {
+            Debug.LogWarning("Audio Source is null");
+            return;
+        }
         s.source.Play();
     }
 
@@ -58,5 +66,15 @@ public class AudioManager : MonoBehaviour
         }
             
         s.source.Stop();
+    }
+
+    public void SetMainVolume(float volume)
+    {
+        audioMixer.SetFloat("musicvolume",volume);
+    }
+
+    public void SetSFXVolume(float sfxvolume)
+    {
+        audioMixer.SetFloat("effectsvolume", sfxvolume);
     }
 }

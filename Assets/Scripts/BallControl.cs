@@ -59,7 +59,7 @@ public class BallControl : MonoBehaviour
         m_Rb = GetComponent<Rigidbody2D>();
         m_Lr = GetComponent<LineRenderer>();
         m_Cl = GetComponent<CircleCollider2D>();
-        m_AudioManager = FindObjectOfType<AudioManager>();
+        m_AudioManager = AudioManager.instance;
     }
 
     // Start is called before the first frame update
