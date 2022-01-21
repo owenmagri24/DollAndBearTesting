@@ -110,7 +110,7 @@ public abstract class CharacterBase : MonoBehaviour
     protected void OnDrawGizmos() {
         Gizmos.color = Color.yellow;
 
-        Gizmos.DrawLine(new Vector2(transform.position.x, transform.position.y - 0.5f), (Vector2)transform.position + Vector2.right * transform.localScale.x * m_InteractDistance);
+        Gizmos.DrawLine(new Vector2(transform.position.x, transform.position.y - 0.5f), new Vector2(transform.position.x, transform.position.y - 0.5f) + Vector2.right * transform.localScale.x * m_InteractDistance);
     }
 
     public virtual void OnInteract()
@@ -123,7 +123,7 @@ public abstract class CharacterBase : MonoBehaviour
             if (m_hit.collider != null) {
                 m_ObjectHit = m_hit.collider.gameObject;
             }
-            Debug.Log(m_ObjectHit);
+            //Debug.Log(m_ObjectHit);
         }
     }
     public void Stop()
@@ -142,19 +142,9 @@ public abstract class CharacterBase : MonoBehaviour
             m_Rigidbody2D.AddForce(Vector2.up * m_JumpForce * 1.5f, ForceMode2D.Impulse);
             m_AudioManager.Play("PillowJump");
         }
-        else if(other.gameObject.tag == "MovingCart")
-        {
-            transform.parent = other.transform;
-        }
+        
     }
 
-    private void OnCollisionExit2D(Collision2D other) 
-    {
-        if(other.gameObject.tag == "MovingCart")
-        {
-            transform.parent = null;
-        }
-    }
 
     protected virtual void OnTriggerEnter2D(Collider2D other) {
         if(other.TryGetComponent<RespawnPoint>(out RespawnPoint rp)) //if other has respawnpoint script: set it as rp
@@ -170,11 +160,22 @@ public abstract class CharacterBase : MonoBehaviour
                 }
             }
         }
-
         else if(other.gameObject.tag == "DeathArea")
         {
-            Debug.Log("hello");
+            //Debug.Log("death: " + other.gameObject.name);
             m_CharacterController.RestartCharacters();
+        }
+        else if(other.gameObject.tag == "MovingCart")
+        {
+            transform.parent = other.transform;
+        }
+    }
+
+    protected virtual void OnTriggerExit2D(Collider2D other) {
+        if(other.gameObject.tag == "MovingCart")
+        {
+            Debug.Log("exited");
+            transform.parent = null;
         }
     }
 }

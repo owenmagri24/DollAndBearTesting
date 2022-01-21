@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 2825095211054237570}
   - component: {fileID: 2825095211054237571}
   - component: {fileID: 2825095211054237568}
-  m_Layer: 0
+  - component: {fileID: 96494811}
+  m_Layer: 6
   m_Name: MovingCart
-  m_TagString: Untagged
+  m_TagString: MovingCart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -68,7 +69,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.32321048}
+  m_Offset: {x: 1.312973, y: -8.358963}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -79,7 +80,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 9.555383, y: 7.231505}
+  m_Size: {x: 18.327087, y: 11.022942}
   m_EdgeRadius: 0
 --- !u!114 &2825095211054237568
 MonoBehaviour:
@@ -93,8 +94,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 171b31febb11414488638a86c9d84d2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Speed: 3
-  m_Offset: 6
+  m_Speed: 4.5
+  m_Offset: 22
+--- !u!61 &96494811
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2825095211054237572}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 1.8960266, y: 0.31828356}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 19.381195, y: 6.1379404}
+  m_EdgeRadius: 0
 --- !u!1 &4068760986323789332
 GameObject:
   m_ObjectHideFlags: 0
@@ -105,7 +132,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2535213956881155112}
   - component: {fileID: 6976506605065859395}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -120,7 +147,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4068760986323789332}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -2.9, z: 0}
   m_LocalScale: {x: 1.2991099, y: 1.50798, z: 1.50798}
   m_Children: []
   m_Father: {fileID: 2825095211054237569}
@@ -165,7 +192,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1331285987
   m_SortingLayer: -3
-  m_SortingOrder: -3
+  m_SortingOrder: -5
   m_Sprite: {fileID: 21300000, guid: 3782229fbb3177c479b2f4a5f6f1b95e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

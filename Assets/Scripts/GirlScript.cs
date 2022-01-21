@@ -25,6 +25,7 @@ public class GirlScript : CharacterBase
         base.OnInteract();
         
         if (m_ObjectHit != null &&  m_ObjectHit.tag == "Bear"){
+            m_ObjectHit.transform.parent = null;
             m_ObjectHit.SetActive(false);
         }
         else if(m_ObjectHit != null &&  m_ObjectHit.name == "SleepingBear")
@@ -38,13 +39,16 @@ public class GirlScript : CharacterBase
 
     protected override void OnTriggerEnter2D(Collider2D other) {
         base.OnTriggerEnter2D(other);
+
         if(other.gameObject.GetComponent<SleepingBearScript>())
         {
             m_SleepingBearScript = other.gameObject.GetComponent<SleepingBearScript>();
             m_SleepingBearScript.ToggleText();
         }
     }
-    private void OnTriggerExit2D(Collider2D other) {
+    protected override void OnTriggerExit2D(Collider2D other) {
+        base.OnTriggerExit2D(other);
+
         if(other.gameObject.GetComponent<SleepingBearScript>())
         {
             m_SleepingBearScript.ToggleText();

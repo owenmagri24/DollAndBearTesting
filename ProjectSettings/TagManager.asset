@@ -9,6 +9,7 @@ TagManager:
   - Bear
   - MovingCart
   - DeathArea
+  - Pot
   layers:
   - Default
   - TransparentFX
