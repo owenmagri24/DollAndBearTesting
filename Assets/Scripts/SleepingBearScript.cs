@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class SleepingBearScript : MonoBehaviour
 {
+    /*
     [SerializeField] private GameObject m_TextParent;
 
     public void ToggleText()
@@ -17,5 +18,5 @@ public class SleepingBearScript : MonoBehaviour
             m_TextParent.SetActive(true);
         }
     }
-    
+    */
 }

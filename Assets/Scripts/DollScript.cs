@@ -36,7 +36,13 @@ public class DollScript : CharacterBase
             m_BoxHolderCollider.enabled = true; //enable boxholder collider
             m_BoxHolderCollider.sharedMaterial = m_NoFrictionMaterial;
             m_BoxHolderCollider.size = objectHitCollider.size; //set boxholder collider size to object collider size
-            
+
+            //Intro Segment
+            if(m_UIManager.GrabIntroText == true)
+            {
+                m_UIManager.GrabIntroText = false;
+                m_UIManager.ToggleText();
+            }
         }
         else if(m_HoldingObject != null)
         {
@@ -49,6 +55,25 @@ public class DollScript : CharacterBase
             m_ObjectHit.GetComponent<Rigidbody2D>().isKinematic = false;
             m_ObjectHit = null;
             m_HoldingObject = null;
+        }
+    }
+
+
+    protected override void OnTriggerEnter2D(Collider2D other) {
+        base.OnTriggerEnter2D(other);
+
+        if(other.gameObject.tag == "Level1End")
+        {
+            m_UIManager.ChangeText("Where's the girl?");
+        }
+    }
+
+    protected override void OnTriggerExit2D(Collider2D other) {
+        base.OnTriggerExit2D(other);
+
+        if(other.gameObject.tag == "Level1End")
+        {
+            m_UIManager.ToggleText();
         }
     }
 }

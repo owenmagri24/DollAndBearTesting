@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
@@ -10,12 +11,18 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject m_ControlsMenu;
     [SerializeField] private CharacterController m_CharacterController;
 
-    
+    public GameObject InfoText;
+    public bool m_ThrowIntroText;
+    public bool SwapIntroText;
+    public bool GrabIntroText;
     public bool IsPaused;
 
     private void Start() {
         IsPaused = false;
         Time.timeScale = 1f;
+        m_ThrowIntroText = true;
+        SwapIntroText = true;
+        GrabIntroText = false;
     }
 
     public void PauseGame(){
@@ -62,5 +69,32 @@ public class UIManager : MonoBehaviour
     public void QuitGame()
     {
         Application.Quit();
+    }
+
+    public void WinGame()
+    {
+        //Load Win Scene at position 2
+        SceneManager.LoadScene(2);
+    }
+
+    public void ChangeText(string newText)
+    {
+        if(!InfoText.activeSelf)
+        {
+            InfoText.SetActive(true);
+        }
+        InfoText.GetComponent<Text>().text = newText;
+
+    }
+
+    public void ToggleText()
+    {
+        if(InfoText.activeSelf){
+            InfoText.SetActive(false);
+        }
+        else
+        {
+            InfoText.SetActive(true);
+        }
     }
 }

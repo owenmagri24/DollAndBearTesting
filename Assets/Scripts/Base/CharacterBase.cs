@@ -42,18 +42,23 @@ public abstract class CharacterBase : MonoBehaviour
 
     protected GameObject m_CushionsList;
 
+    protected UIManager m_UIManager;
+
+    protected BallControl m_BallControl;
+
     protected virtual void Awake()
     {
         m_Rigidbody2D = GetComponent<Rigidbody2D>();
         m_BoxCollider2D = GetComponent<Collider2D>();
         m_RespawnPointManager = FindObjectOfType<RespawnPointManager>();
+        m_BallControl = FindObjectOfType<BallControl>();
+        m_UIManager = FindObjectOfType<UIManager>();
         m_CharacterController = GameObject.Find("PlayerControls").GetComponent<CharacterController>();
         m_CushionsList = GameObject.Find("CushionsParent");
         m_AudioManager = AudioManager.instance;
     }
 
     protected void Start() {
-        //m_RespawnPoint = new Vector2(m_StartingPoint.position.x, m_StartingPoint.position.y);
         if(m_RespawnPointManager.RespawnPointsLists != null)
         {
             m_RespawnPoint = m_RespawnPointManager.RespawnPointsLists[0].location; //get location of respawn point in position 0
@@ -123,7 +128,6 @@ public abstract class CharacterBase : MonoBehaviour
             if (m_hit.collider != null) {
                 m_ObjectHit = m_hit.collider.gameObject;
             }
-            //Debug.Log(m_ObjectHit);
         }
     }
     public void Stop()

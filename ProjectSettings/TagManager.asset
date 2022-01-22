@@ -10,6 +10,7 @@ TagManager:
   - MovingCart
   - DeathArea
   - Pot
+  - Level1End
   layers:
   - Default
   - TransparentFX
