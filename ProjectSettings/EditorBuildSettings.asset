@@ -9,10 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/TitleMenu.unity
     guid: ccde58e505c70fe4da6179f928ae4e58
   - enabled: 1
-    path: Assets/Scenes/OwenTesting.unity
-    guid: 4366f64acc14b2e41b317c72352a8039
-  - enabled: 1
-    path: Assets/Scenes/DemoEnd.unity
-    guid: c36b6414f3bb70c4fb563d3a2a79657b
+    path: Assets/Scenes/OwenTesting2.unity
+    guid: 46c6cec40ed94a0499f5095a7df5ba43
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 87fa9af14735e47b18fe135370a25e49, type: 2}

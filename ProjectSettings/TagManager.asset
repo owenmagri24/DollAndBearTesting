@@ -60,3 +60,6 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Front_Visuals
+    uniqueID: 1945639027
+    locked: 0
