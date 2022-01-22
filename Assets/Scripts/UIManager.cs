@@ -62,7 +62,7 @@ public class UIManager : MonoBehaviour
 
     public void StartGame()
     {
-        //Loads Game Scene at position 1
+        //Loads Cinematic Scene at position 1
         SceneManager.LoadScene(1);
     }
 
@@ -71,10 +71,16 @@ public class UIManager : MonoBehaviour
         Application.Quit();
     }
 
+    public void LoadLevel()
+    {
+        //Load Level Scene
+        SceneManager.LoadScene(2);
+    }
+
     public void WinGame()
     {
         //Load Win Scene at position 2
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(3);
     }
 
     public void ChangeText(string newText)

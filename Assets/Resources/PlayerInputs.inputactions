@@ -158,6 +158,63 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "Cinematic",
+            "id": "a0fd468f-17b2-48ef-9723-4b6e77890055",
+            "actions": [
+                {
+                    "name": "Click",
+                    "type": "Button",
+                    "id": "0054938c-481e-4327-a665-0693eb76a3fd",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Escape",
+                    "type": "Button",
+                    "id": "611a7b71-1147-4cb2-9de8-821ac307be33",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "9f1bc329-bac9-4719-b185-7541140c31cd",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Click",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "986d1a4b-7f4a-4ef7-ae1a-f5fa3251a291",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Click",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7723b88f-b3bd-4015-9872-2b4b97be860b",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Escape",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []
