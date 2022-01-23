@@ -42,18 +42,23 @@ public abstract class CharacterBase : MonoBehaviour
 
     protected GameObject m_CushionsList;
 
+    protected UIManager m_UIManager;
+
+    protected BallControl m_BallControl;
+
     protected virtual void Awake()
     {
         m_Rigidbody2D = GetComponent<Rigidbody2D>();
         m_BoxCollider2D = GetComponent<Collider2D>();
         m_RespawnPointManager = FindObjectOfType<RespawnPointManager>();
+        m_BallControl = FindObjectOfType<BallControl>();
+        m_UIManager = FindObjectOfType<UIManager>();
         m_CharacterController = GameObject.Find("PlayerControls").GetComponent<CharacterController>();
         m_CushionsList = GameObject.Find("CushionsParent");
         m_AudioManager = AudioManager.instance;
     }
 
     protected void Start() {
-        //m_RespawnPoint = new Vector2(m_StartingPoint.position.x, m_StartingPoint.position.y);
         if(m_RespawnPointManager.RespawnPointsLists != null)
         {
             m_RespawnPoint = m_RespawnPointManager.RespawnPointsLists[0].location; //get location of respawn point in position 0
@@ -110,16 +115,16 @@ public abstract class CharacterBase : MonoBehaviour
     protected void OnDrawGizmos() {
         Gizmos.color = Color.yellow;
 
-        Gizmos.DrawLine(transform.position, (Vector2)transform.position + Vector2.right * transform.localScale.x * m_InteractDistance);
+        Gizmos.DrawLine(new Vector2(transform.position.x, transform.position.y - 0.5f), new Vector2(transform.position.x, transform.position.y - 0.5f) + Vector2.right * transform.localScale.x * m_InteractDistance);
     }
 
     public virtual void OnInteract()
-    {
+    {      
         if (m_HoldingObject == null)
         {
             int layers = 1 << LayerMask.NameToLayer("InteractableObject") | 1 << LayerMask.NameToLayer("Player");
-            m_hit = Physics2D.Raycast((transform.position), Vector2.right * transform.localScale.x, m_InteractDistance, layers);
-
+            m_hit = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y -0.5f), Vector2.right * transform.localScale.x, m_InteractDistance, layers);
+            
             if (m_hit.collider != null) {
                 m_ObjectHit = m_hit.collider.gameObject;
             }
@@ -131,24 +136,19 @@ public abstract class CharacterBase : MonoBehaviour
     }
 
     private void OnCollisionEnter2D(Collision2D other) {
-        if (other.gameObject.transform.IsChildOf(m_CushionsList.transform))
+        if (other.gameObject.transform.IsChildOf(m_CushionsList.transform) && (other.gameObject.name == ("CushionBigBounce")))
+        {
+            m_Rigidbody2D.AddForce(Vector2.up * m_JumpForce * 2.5f, ForceMode2D.Impulse);
+            m_AudioManager.Play("PillowJump");
+        }
+        else if(other.gameObject.transform.IsChildOf(m_CushionsList.transform))
         {
             m_Rigidbody2D.AddForce(Vector2.up * m_JumpForce * 1.5f, ForceMode2D.Impulse);
             m_AudioManager.Play("PillowJump");
         }
-        else if(other.gameObject.tag == "MovingCart")
-        {
-            transform.parent = other.transform;
-        }
+        
     }
 
-    private void OnCollisionExit2D(Collision2D other) 
-    {
-        if(other.gameObject.tag == "MovingCart")
-        {
-            transform.parent = null;
-        }
-    }
 
     protected virtual void OnTriggerEnter2D(Collider2D other) {
         if(other.TryGetComponent<RespawnPoint>(out RespawnPoint rp)) //if other has respawnpoint script: set it as rp
@@ -164,10 +164,22 @@ public abstract class CharacterBase : MonoBehaviour
                 }
             }
         }
-
         else if(other.gameObject.tag == "DeathArea")
         {
+            //Debug.Log("death: " + other.gameObject.name);
             m_CharacterController.RestartCharacters();
+        }
+        else if(other.gameObject.tag == "MovingCart")
+        {
+            transform.parent = other.transform;
+        }
+    }
+
+    protected virtual void OnTriggerExit2D(Collider2D other) {
+        if(other.gameObject.tag == "MovingCart")
+        {
+            Debug.Log("exited");
+            transform.parent = null;
         }
     }
 }

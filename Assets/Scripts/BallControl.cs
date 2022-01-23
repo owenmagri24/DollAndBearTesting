@@ -53,16 +53,19 @@ public class BallControl : MonoBehaviour
 
     private AudioManager m_AudioManager;
 
+    private UIManager m_UIManager;
+
 
     private void Awake()
     {
         m_Rb = GetComponent<Rigidbody2D>();
         m_Lr = GetComponent<LineRenderer>();
         m_Cl = GetComponent<CircleCollider2D>();
+        m_UIManager = FindObjectOfType<UIManager>();
         m_AudioManager = AudioManager.instance;
     }
 
-    // Start is called before the first frame update
+
     private void Start()
     {
         m_Rb.isKinematic = true;
@@ -86,6 +89,16 @@ public class BallControl : MonoBehaviour
         m_Camera.m_Follow = DollBear.transform;
         m_Camera.m_Lens.OrthographicSize = m_ZoomNormal; //Changes zoom back to normal
         BearBallVisual.enabled = false; //turns sprite off
+
+        //IntroSegment
+        if(m_UIManager.SwapIntroText == true)
+        {
+            m_UIManager.ChangeText("Press q to swap characters");
+        }
+        if(m_UIManager.GrabIntroText == true)
+        {
+            m_UIManager.ChangeText("You can grab objects with the bear");
+        }
     }
 
     public void ResetBall()
@@ -111,12 +124,18 @@ public class BallControl : MonoBehaviour
         //Stop girl movement
         Girl.GetComponent<GirlScript>().StopMovement();
 
-
         animator.SetBool("Throwing", true);
+
+        //Intro Segment
+        if(m_UIManager.m_ThrowIntroText == true){ 
+            m_UIManager.ChangeText("Right click to cancel throw");
+        }
     }
 
     void OnCancelThrow()
     {
+        if (m_canThrow == false)
+            return;
         m_isThrowing = false;
 
         m_Lr.positionCount = 0;
@@ -126,6 +145,14 @@ public class BallControl : MonoBehaviour
         Girl.GetComponent<GirlScript>().EnableMovement();
 
         animator.SetBool("Throwing", false);
+
+
+        //Intro Segment
+        if(m_UIManager.m_ThrowIntroText == true)
+        {
+            m_UIManager.ToggleText();
+            m_UIManager.m_ThrowIntroText = false;
+        }
     }
 
     void OnMouseMove(InputValue value)

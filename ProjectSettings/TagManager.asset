@@ -9,6 +9,8 @@ TagManager:
   - Bear
   - MovingCart
   - DeathArea
+  - Pot
+  - Level1End
   layers:
   - Default
   - TransparentFX
@@ -57,4 +59,7 @@ TagManager:
     locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Front_Visuals
+    uniqueID: 1945639027
     locked: 0

@@ -80,7 +80,7 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 403899b571cf9fa4791d3a255b8ecdbc, type: 3}
     audioMixer: {fileID: 24100000, guid: b9ee9c352e05340ca88b21611ba658b7, type: 2}
     mixerGroup: {fileID: 6452605443232093266, guid: b9ee9c352e05340ca88b21611ba658b7, type: 2}
-    volume: 1
+    volume: 0.2
     pitch: 1
     loop: 0
     source: {fileID: 0}
