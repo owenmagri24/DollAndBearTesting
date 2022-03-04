@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
@@ -167,7 +167,7 @@ public class BallControl : MonoBehaviour
 
         Vector2 DragEndPos = Camera.main.ScreenToWorldPoint(m_mousePosition);
         Vector2 pos = new Vector2(transform.position.x, transform.position.y);
-        Vector2 _velocity = (DragEndPos - pos) * m_Power;
+        Vector2 _velocity = (CalculateMaximumThrow(pos, DragEndPos, 10) - pos) * m_Power;
 
         Vector2[] trajectory = Plot(m_Rb, (Vector2)transform.position, _velocity, 500);
 
@@ -187,7 +187,7 @@ public class BallControl : MonoBehaviour
             return;
         Vector2 DragEndPos = Camera.main.ScreenToWorldPoint(m_mousePosition);
         Vector2 pos = new Vector2(transform.position.x, transform.position.y);
-        Vector2 _velocity = (DragEndPos - pos) * m_Power;
+        Vector2 _velocity = (CalculateMaximumThrow(pos, DragEndPos, 10) - pos) * m_Power;
 
         //turns sprite on
         BearBallVisual.enabled = true;
@@ -202,11 +202,14 @@ public class BallControl : MonoBehaviour
         m_Cl.enabled = true;
         m_Rb.isKinematic = false;
         transform.SetParent(null);
+
         //Switch to TargetGroup
         m_Camera.Follow = m_TargetGroupCamera.transform;
         m_CharacterBase.Stop();
+
         //enable girl movement
         Girl.GetComponent<GirlScript>().EnableMovement();
+
         //Switch controller to bear
         m_CharacterController.m_ControlledCharacter = m_CharacterController.m_Characters[1];
 
@@ -233,5 +236,20 @@ public class BallControl : MonoBehaviour
             results[i] = pos;
         }
         return results;
-    }    
+    }
+
+    //Sets a maximum throw distance
+    Vector2 CalculateMaximumThrow(Vector2 origin, Vector2 dragEndPos, float maxPower)
+    {
+        float d = Vector2.Distance(origin, dragEndPos);
+        if (d > maxPower)
+        {
+            float t = maxPower / d; // max throw distance / current distance
+            return Vector2.Lerp(origin, dragEndPos, t); //Lerps current distance to max throw distance
+        }
+
+        return dragEndPos; //if under max throw distance
+        
+        
+    }
 }
