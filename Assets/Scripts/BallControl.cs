@@ -56,6 +56,13 @@ public class BallControl : MonoBehaviour
     private UIManager m_UIManager;
 
 
+    //throw power up value
+    private float NewMaxPower = 15f;
+
+    //throw power up bool
+    public bool powerUpThrow;
+
+
     private void Awake()
     {
         m_Rb = GetComponent<Rigidbody2D>();
@@ -192,8 +199,6 @@ public class BallControl : MonoBehaviour
         //turns sprite on
         BearBallVisual.enabled = true;
 
-
-
         m_canThrow = false;
         m_isThrowing = false;
 
@@ -218,29 +223,31 @@ public class BallControl : MonoBehaviour
     }
 
 
-    public Vector2[] Plot(Rigidbody2D rigidbody, Vector2 pos, Vector2 velocity, int steps)
+public Vector2[] Plot(Rigidbody2D rigidbody, Vector2 pos, Vector2 velocity, int steps)
+{
+    Vector2[] results = new Vector2[steps];
+
+    float timestep = Time.fixedDeltaTime / Physics2D.velocityIterations;
+    Vector2 gravityAccel = Physics2D.gravity * rigidbody.gravityScale * timestep * timestep;
+
+    float drag = 1f - timestep * rigidbody.drag;
+    Vector2 moveStep = velocity * timestep;
+
+    for(int i = 0; i < steps; i++)
     {
-        Vector2[] results = new Vector2[steps];
-
-        float timestep = Time.fixedDeltaTime / Physics2D.velocityIterations;
-        Vector2 gravityAccel = Physics2D.gravity * rigidbody.gravityScale * timestep * timestep;
-
-        float drag = 1f - timestep * rigidbody.drag;
-        Vector2 moveStep = velocity * timestep;
-
-        for(int i = 0; i < steps; i++)
-        {
-            moveStep += gravityAccel;
-            moveStep *= drag;
-            pos += moveStep;
-            results[i] = pos;
-        }
-        return results;
+        moveStep += gravityAccel;
+        moveStep *= drag;
+        pos += moveStep;
+        results[i] = pos;
+    }
+    return results;
     }
 
     //Sets a maximum throw distance
     Vector2 CalculateMaximumThrow(Vector2 origin, Vector2 dragEndPos, float maxPower)
     {
+        if (powerUpThrow == true)
+            maxPower = NewMaxPower;
         float d = Vector2.Distance(origin, dragEndPos);
         if (d > maxPower)
         {
@@ -248,8 +255,6 @@ public class BallControl : MonoBehaviour
             return Vector2.Lerp(origin, dragEndPos, t); //Lerps current distance to max throw distance
         }
 
-        return dragEndPos; //if under max throw distance
-        
-        
+        return dragEndPos; //if under max throw distance  
     }
 }

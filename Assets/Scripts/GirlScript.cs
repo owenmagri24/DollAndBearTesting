@@ -53,6 +53,11 @@ public class GirlScript : CharacterBase
             //win game
             m_UIManager.WinGame();
         }
+        else if(other.gameObject.tag == "PowerUP_Throw")
+        {
+            m_BallControl.powerUpThrow = true;
+            Destroy(other.gameObject);
+        }
     }
     protected override void OnTriggerExit2D(Collider2D other) {
         base.OnTriggerExit2D(other);

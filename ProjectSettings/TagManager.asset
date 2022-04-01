@@ -11,6 +11,7 @@ TagManager:
   - DeathArea
   - Pot
   - Level1End
+  - PowerUP_Throw
   layers:
   - Default
   - TransparentFX
