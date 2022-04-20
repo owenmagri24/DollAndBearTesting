@@ -30,6 +30,11 @@ public abstract class CharacterBase : MonoBehaviour
 
     protected bool m_IsJumping;
 
+    protected bool m_CanWalkOnSlope;
+
+    [SerializeField]
+    protected float m_MaxSlopeAngle;
+
     [SerializeField]
     protected PhysicsMaterial2D m_NoFriction;
 
@@ -113,21 +118,19 @@ public abstract class CharacterBase : MonoBehaviour
 
     protected virtual void ApplyMovement()
     {
-        m_Rigidbody2D.velocity = new Vector2(direction.x * m_Speed, m_Rigidbody2D.velocity.y);
+        //m_Rigidbody2D.velocity = new Vector2(direction.x * m_Speed, m_Rigidbody2D.velocity.y);
 
         if(IsGrounded() && !m_IsOnSlope && !m_IsJumping)
         {
-            Debug.Log("Grounded and not on slope");
             m_Rigidbody2D.velocity = new Vector2(direction.x * m_Speed, 0.0f);
         }
-        else if(IsGrounded() && m_IsOnSlope && !m_IsJumping )
+        else if(IsGrounded() && m_IsOnSlope && !m_IsJumping && m_CanWalkOnSlope)
         {
-            Debug.Log("Grounded and on slope");
             m_Rigidbody2D.velocity = new Vector2(m_SlopeNormalPerp.x * m_Speed *  -direction.x, m_SlopeNormalPerp.y * m_Speed *  -direction.x);
         }
         else if(!IsGrounded())
         {
-            Debug.Log("not grounded");
+            m_Rigidbody2D.sharedMaterial = m_NoFriction;
             m_Rigidbody2D.velocity = new Vector2(direction.x * m_Speed, m_Rigidbody2D.velocity.y);
         }
     }
@@ -283,7 +286,7 @@ public abstract class CharacterBase : MonoBehaviour
             if(m_SlopeDownAngle != m_SlopeDownAngleOld)
             {
                 m_IsOnSlope = true;
-                m_JumpCheckToFloor = 1.25f;
+                m_JumpCheckToFloor = 1.5f;
             }
             m_SlopeDownAngleOld = m_SlopeDownAngle;
 
@@ -291,7 +294,16 @@ public abstract class CharacterBase : MonoBehaviour
             Debug.DrawRay(hit.point, hit.normal, Color.green);
         }
 
-        if(m_IsOnSlope && direction.x == 0.0f)
+        if(m_SlopeDownAngle > m_MaxSlopeAngle)
+        {
+            m_CanWalkOnSlope = false;
+        }
+        else
+        {
+            m_CanWalkOnSlope = true;
+        }
+
+        if(m_IsOnSlope && direction.x == 0.0f && m_CanWalkOnSlope == true)
         {
             m_Rigidbody2D.sharedMaterial = m_FullFriction;
         }

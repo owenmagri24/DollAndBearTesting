@@ -21,8 +21,6 @@ public class DollScript : CharacterBase
 
     public override void OnInteract(){
         base.OnInteract();
-
-        
         
         if(m_ObjectHit != null && m_ObjectHit.tag == "PushableObject" && m_HoldingObject == null)
         { 
@@ -30,6 +28,7 @@ public class DollScript : CharacterBase
 
             // Physics2D.IgnoreCollision(m_hit.collider, m_BoxCollider2D); //ignores picked up object collider
             m_HoldingObject = m_ObjectHit.transform;
+            m_ObjectHit.transform.rotation = Quaternion.Euler(0,0,0);
             m_ObjectHit.transform.parent = m_BoxHolder;
             m_ObjectHit.transform.position = m_BoxHolder.position;
             
@@ -65,6 +64,7 @@ public class DollScript : CharacterBase
             // Physics2D.IgnoreCollision(m_hit.collider, m_BoxCollider2D, false);//enables collision on release
             m_ObjectHit.transform.parent = null;
             m_ObjectHit.GetComponent<Rigidbody2D>().isKinematic = false;
+            m_ObjectHit.GetComponent<Rigidbody2D>().AddForce(new Vector2(30f, 0), ForceMode2D.Force);
             m_ObjectHit = null;
             m_HoldingObject = null;
         }
