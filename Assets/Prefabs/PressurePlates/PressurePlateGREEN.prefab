@@ -122,5 +122,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6ec651e441308f469bcfbf347c031a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  plateColor: 1
-  plateMaterial: {fileID: 2100000, guid: 2a0f629fb4ceed0409b3c24c5ea30462, type: 2}
+  m_PlateColor: 1
+  m_PlateMaterial: {fileID: 2100000, guid: 2a0f629fb4ceed0409b3c24c5ea30462, type: 2}

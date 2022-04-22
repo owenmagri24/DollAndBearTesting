@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3444979762394185783}
   - component: {fileID: 2498582431463312685}
   m_Layer: 7
-  m_Name: PressurePlateRED
+  m_Name: PressurePlatePAINTING
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 3444979762394185777}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -66.3, y: -7.11, z: 1.1657804}
-  m_LocalScale: {x: 1.4, y: 0.3, z: 1}
+  m_LocalScale: {x: 1.9831157, y: 0.3, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
-  m_Color: {r: 0.9622642, g: 0.18609825, b: 0.18609825, a: 1}
+  m_Color: {r: 0.55760926, g: 0.11534355, b: 0.9056604, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -122,5 +122,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6ec651e441308f469bcfbf347c031a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_PlateColor: 0
-  m_PlateMaterial: {fileID: 2100000, guid: 1e309048917d4b0459dfb47c37ac8499, type: 2}
+  m_PlateColor: 4
+  m_PlateMaterial: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_PaintingPuzzle: {fileID: 0}

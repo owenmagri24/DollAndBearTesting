@@ -13,6 +13,8 @@ public class DollScript : CharacterBase
     private PhysicsMaterial2D m_NoFrictionMaterial;
     private float m_ObjectHeight;
 
+    public PressurePlate.PlateColor m_BearColor; //used in pressureplate script
+
     public override void Update()
     {
         base.Update();
