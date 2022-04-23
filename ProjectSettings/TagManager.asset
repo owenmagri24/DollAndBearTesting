@@ -12,6 +12,7 @@ TagManager:
   - Pot
   - Level1End
   - PowerUP_Throw
+  - Hang
   layers:
   - Default
   - TransparentFX

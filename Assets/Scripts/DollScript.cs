@@ -13,11 +13,27 @@ public class DollScript : CharacterBase
     private PhysicsMaterial2D m_NoFrictionMaterial;
     private float m_ObjectHeight;
 
+    private bool Hanging = false;
+
     public override void Update()
     {
         base.Update();
         animator.SetBool("Holding", m_HoldingObject != null);
     }
+
+   
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Hang")
+        {
+            Hanging = true;
+            Debug.Log("Hit Hang");
+            this.gameObject.transform.parent = collision.transform;
+            this.m_Rigidbody2D.velocity = Vector2.zero;
+            this.m_Rigidbody2D.isKinematic = true;
+        }
+    }
+    
 
     public override void OnInteract(){
         base.OnInteract();
@@ -69,7 +85,6 @@ public class DollScript : CharacterBase
             m_HoldingObject = null;
         }
     }
-
 
     protected override void OnTriggerEnter2D(Collider2D other) {
         base.OnTriggerEnter2D(other);
