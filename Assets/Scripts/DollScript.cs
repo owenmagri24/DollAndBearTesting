@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 
 public class DollScript : CharacterBase
 {
+    [Header("Doll Variables")]
     [SerializeField]
     private BoxCollider2D m_BoxHolderCollider;
     private BoxCollider2D objectHitCollider;
@@ -15,10 +16,24 @@ public class DollScript : CharacterBase
 
     public PressurePlate.PlateColor m_BearColor; //used in pressureplate script
 
+    [Header("WallJumping")]
+    [SerializeField] private Transform m_FrontCheck;
+    [SerializeField] private LayerMask m_WallLayer;
+    [SerializeField] private float m_WallSlidingSpeed;
+    [SerializeField] private float m_WallCheckRadius;
+    [SerializeField] private float m_xWallForce;
+    [SerializeField] private float m_yWallForce;
+    [SerializeField] private float m_WallJumpTime;
+    private bool m_IsFrontTouchingWall;
+    private bool m_IsWallSliding;
+    private bool m_IsWallJumping;
+    
+
     public override void Update()
     {
         base.Update();
         animator.SetBool("Holding", m_HoldingObject != null);
+        WallJumping();
     }
 
     public override void OnInteract(){
@@ -72,6 +87,17 @@ public class DollScript : CharacterBase
         }
     }
 
+    public override void OnJump()
+    {
+        base.OnJump();
+
+        if(m_IsWallSliding)
+        {
+            m_IsWallJumping = true;
+            Invoke("SetWallJumpingToFalse", m_WallJumpTime);
+        }
+    }
+
 
     protected override void OnTriggerEnter2D(Collider2D other) {
         base.OnTriggerEnter2D(other);
@@ -89,5 +115,34 @@ public class DollScript : CharacterBase
         {
             m_UIManager.ToggleText();
         }
+    }
+
+    private void WallJumping()
+    {
+        m_IsFrontTouchingWall = Physics2D.OverlapCircle(m_FrontCheck.position, m_WallCheckRadius, m_WallLayer);
+
+        if(m_IsFrontTouchingWall && !IsGrounded() && direction.x != 0)
+        {
+            m_IsWallSliding = true;
+        }
+        else
+        {
+            m_IsWallSliding = false;
+        }
+
+        if(m_IsWallSliding)
+        {
+            m_Rigidbody2D.velocity = new Vector2(m_Rigidbody2D.velocity.x, Mathf.Clamp(m_Rigidbody2D.velocity.y, -m_WallSlidingSpeed, float.MaxValue));
+        }
+
+        if(m_IsWallJumping)
+        {
+            m_Rigidbody2D.velocity = new Vector2(m_xWallForce * direction.x, m_yWallForce);
+        }
+    }
+
+    private void SetWallJumpingToFalse()
+    {
+        m_IsWallJumping = false;
     }
 }

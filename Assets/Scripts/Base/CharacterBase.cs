@@ -149,7 +149,7 @@ public abstract class CharacterBase : MonoBehaviour
         transform.localScale = characterScale;
     }
 
-    public void OnJump() {
+    public virtual void OnJump() {
         if (IsGrounded()) {
             m_IsJumping = true;
             m_AudioManager.Play("PlayerJump");
@@ -158,7 +158,7 @@ public abstract class CharacterBase : MonoBehaviour
     }
 
     protected bool IsGrounded() {
-        int layers = 1 << LayerMask.NameToLayer("Platforms") | 1 << LayerMask.NameToLayer("InteractableObject");
+        int layers = 1 << LayerMask.NameToLayer("Platforms") | 1 << LayerMask.NameToLayer("InteractableObject") | 1 << LayerMask.NameToLayer("WallJump");
         RaycastHit2D raycastHit2D = Physics2D.Raycast(transform.position, Vector2.down, m_JumpCheckToFloor, layers);
 
         if(m_Rigidbody2D.velocity.y <= 0.0f)
@@ -191,7 +191,7 @@ public abstract class CharacterBase : MonoBehaviour
         direction = Vector2.zero;
     }
 
-    private void OnCollisionEnter2D(Collision2D other) {
+    protected virtual void OnCollisionEnter2D(Collision2D other) {
         if (other.gameObject.transform.IsChildOf(m_CushionsList.transform) && (other.gameObject.name == ("CushionBigBounce")))
         {
             m_IsJumping = true;
