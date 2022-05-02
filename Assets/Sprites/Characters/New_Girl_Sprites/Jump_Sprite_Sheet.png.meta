@@ -1,31 +1,28 @@
 fileFormatVersion: 2
-guid: d11a7b8871e02af4798d9e3740b8ed99
+guid: e66e5435e9993a94191e0120742a55bd
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7888668598494661732
-    second: berry_Jump_0
+      213: 748897792448925102
+    second: Jump_Sprite_Sheet_0
   - first:
-      213: -2374797557456237636
-    second: berry_Jump_1
+      213: 474029128369137616
+    second: Jump_Sprite_Sheet_1
   - first:
-      213: 260989214535734016
-    second: berry_Jump_2
+      213: -5939117405241685190
+    second: Jump_Sprite_Sheet_2
   - first:
-      213: -5145326542871994188
-    second: berry_Jump_3
+      213: -8686748699958725227
+    second: Jump_Sprite_Sheet_3
   - first:
-      213: 6278298611549727220
-    second: berry_Jump_4
+      213: 6580912695511013511
+    second: Jump_Sprite_Sheet_4
   - first:
-      213: -3285445816977580850
-    second: berry_Jump_5
+      213: 529361747643217843
+    second: Jump_Sprite_Sheet_5
   - first:
-      213: -4402552293646791223
-    second: berry_Jump_6
-  - first:
-      213: 479098347874645598
-    second: berry_Jump_7
+      213: 8024152998040389340
+    second: Jump_Sprite_Sheet_6
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -66,7 +63,7 @@ TextureImporter:
   lightmap: 0
   compressionQuality: 50
   spriteMode: 2
-  spriteExtrude: 0
+  spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
@@ -112,54 +109,6 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: iPhone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Lumin
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Windows Store Apps
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
     buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -175,12 +124,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: berry_Jump_0
+      name: Jump_Sprite_Sheet_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 512
+        width: 486
         height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -189,19 +138,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c9372f3a4b1d58290800000000000000
-      internalID: -7888668598494661732
+      spriteID: ead0efb039e946a00800000000000000
+      internalID: 748897792448925102
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: berry_Jump_1
+      name: Jump_Sprite_Sheet_1
       rect:
         serializedVersion: 2
-        x: 512
+        x: 486
         y: 0
-        width: 512
+        width: 486
         height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -210,19 +159,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cbb0b5624360b0fd0800000000000000
-      internalID: -2374797557456237636
+      spriteID: 0d761a11bf6149600800000000000000
+      internalID: 474029128369137616
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: berry_Jump_2
+      name: Jump_Sprite_Sheet_2
       rect:
         serializedVersion: 2
-        x: 1024
+        x: 972
         y: 0
-        width: 512
+        width: 486
         height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -231,19 +180,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0035c9ece483f9300800000000000000
-      internalID: 260989214535734016
+      spriteID: a3bca3dcf24049da0800000000000000
+      internalID: -5939117405241685190
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: berry_Jump_3
+      name: Jump_Sprite_Sheet_3
       rect:
         serializedVersion: 2
-        x: 1536
+        x: 1944
         y: 0
-        width: 512
+        width: 486
         height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -252,19 +201,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4b0e9b635c02898b0800000000000000
-      internalID: -5145326542871994188
+      spriteID: 595bfdde418727780800000000000000
+      internalID: -8686748699958725227
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: berry_Jump_4
+      name: Jump_Sprite_Sheet_4
       rect:
         serializedVersion: 2
-        x: 2048
+        x: 1458
         y: 0
-        width: 512
+        width: 486
         height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -273,19 +222,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4f9ef37c25ff02750800000000000000
-      internalID: 6278298611549727220
+      spriteID: 788dac9ba39145b50800000000000000
+      internalID: 6580912695511013511
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: berry_Jump_5
+      name: Jump_Sprite_Sheet_5
       rect:
         serializedVersion: 2
-        x: 2560
+        x: 2430
         y: 0
-        width: 512
+        width: 486
         height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -294,19 +243,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ecc124ebf60c762d0800000000000000
-      internalID: -3285445816977580850
+      spriteID: 3b734fd64bba85700800000000000000
+      internalID: 529361747643217843
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: berry_Jump_6
+      name: Jump_Sprite_Sheet_6
       rect:
         serializedVersion: 2
-        x: 3072
+        x: 2916
         y: 0
-        width: 512
+        width: 486
         height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -315,29 +264,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9cd0a10c30ef6e2c0800000000000000
-      internalID: -4402552293646791223
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: berry_Jump_7
-      rect:
-        serializedVersion: 2
-        x: 3584
-        y: 0
-        width: 512
-        height: 512
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e567b85b86916a600800000000000000
-      internalID: 479098347874645598
+      spriteID: cd6459f43a48b5f60800000000000000
+      internalID: 8024152998040389340
       vertices: []
       indices: 
       edges: []

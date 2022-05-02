@@ -1,34 +1,25 @@
 fileFormatVersion: 2
-guid: 93debe1e45ef9884fbb85105e8132e5f
+guid: c08bbdd82e47b134a8fff1752a151c7e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3218684278495995548
-    second: berry_Run_0
+      213: 1880308879686253930
+    second: 04_HOLD_idle_0
   - first:
-      213: 4104365976504512411
-    second: berry_Run_1
+      213: -5519221205425035092
+    second: 04_HOLD_idle_1
   - first:
-      213: 4939397377587670849
-    second: berry_Run_2
+      213: -8603814179091066072
+    second: 04_HOLD_idle_2
   - first:
-      213: 6097688627343323945
-    second: berry_Run_3
+      213: 4925199418865597706
+    second: 04_HOLD_idle_3
   - first:
-      213: 3556123346566590812
-    second: berry_Run_4
+      213: 8492484373859529818
+    second: 04_HOLD_idle_4
   - first:
-      213: -7311343837628180657
-    second: berry_Run_5
-  - first:
-      213: -1358306672021143015
-    second: berry_Run_6
-  - first:
-      213: -6778957984262118899
-    second: berry_Run_7
-  - first:
-      213: 869955606468899602
-    second: berry_Run_8
+      213: 5904463514361376737
+    second: 04_HOLD_idle_5
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -69,7 +60,7 @@ TextureImporter:
   lightmap: 0
   compressionQuality: 50
   spriteMode: 2
-  spriteExtrude: 0
+  spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
@@ -115,54 +106,6 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: iPhone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Lumin
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Windows Store Apps
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
     buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -178,7 +121,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: berry_Run_0
+      name: 04_HOLD_idle_0
       rect:
         serializedVersion: 2
         x: 0
@@ -192,14 +135,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4699c18b3bfe453d0800000000000000
-      internalID: -3218684278495995548
+      spriteID: a6d36b9b6f2381a10800000000000000
+      internalID: 1880308879686253930
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: berry_Run_1
+      name: 04_HOLD_idle_1
       rect:
         serializedVersion: 2
         x: 512
@@ -213,14 +156,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b9f20c91c13a5f830800000000000000
-      internalID: 4104365976504512411
+      spriteID: ca866d54e89c763b0800000000000000
+      internalID: -5519221205425035092
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: berry_Run_2
+      name: 04_HOLD_idle_2
       rect:
         serializedVersion: 2
         x: 1024
@@ -234,14 +177,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 14feb9faeb34c8440800000000000000
-      internalID: 4939397377587670849
+      spriteID: 823decdc69c199880800000000000000
+      internalID: -8603814179091066072
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: berry_Run_3
+      name: 04_HOLD_idle_3
       rect:
         serializedVersion: 2
         x: 1536
@@ -255,14 +198,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 923fcb7ef775f9450800000000000000
-      internalID: 6097688627343323945
+      spriteID: a0db171d6c2d95440800000000000000
+      internalID: 4925199418865597706
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: berry_Run_4
+      name: 04_HOLD_idle_4
       rect:
         serializedVersion: 2
         x: 2048
@@ -276,14 +219,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c513391b753e95130800000000000000
-      internalID: 3556123346566590812
+      spriteID: a54f37cfa8d5bd570800000000000000
+      internalID: 8492484373859529818
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: berry_Run_5
+      name: 04_HOLD_idle_5
       rect:
         serializedVersion: 2
         x: 2560
@@ -297,71 +240,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f475e6f4483e88a90800000000000000
-      internalID: -7311343837628180657
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: berry_Run_6
-      rect:
-        serializedVersion: 2
-        x: 3072
-        y: 0
-        width: 512
-        height: 512
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 91203264743562de0800000000000000
-      internalID: -1358306672021143015
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: berry_Run_7
-      rect:
-        serializedVersion: 2
-        x: 3584
-        y: 0
-        width: 512
-        height: 512
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d0222c831ad4ce1a0800000000000000
-      internalID: -6778957984262118899
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: berry_Run_8
-      rect:
-        serializedVersion: 2
-        x: 4096
-        y: 0
-        width: 512
-        height: 512
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 21330fdc304b21c00800000000000000
-      internalID: 869955606468899602
+      spriteID: 1efa3ca784ed0f150800000000000000
+      internalID: 5904463514361376737
       vertices: []
       indices: 
       edges: []

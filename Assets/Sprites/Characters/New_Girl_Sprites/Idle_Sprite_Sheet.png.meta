@@ -1,34 +1,28 @@
 fileFormatVersion: 2
-guid: 05e9ae24d690c5f4082ccf69b32e0a09
+guid: 7f239646e4aec1e4e967e3baf67b7787
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8265119333321663971
-    second: berry_Grab_0
+      213: 5595486650822160991
+    second: Idle_Sprite_Sheet_0
   - first:
-      213: -1650762117485530872
-    second: berry_Grab_1
+      213: -8605622034817109881
+    second: Idle_Sprite_Sheet_1
   - first:
-      213: -7347600949002163686
-    second: berry_Grab_2
+      213: 5758417204468897087
+    second: Idle_Sprite_Sheet_2
   - first:
-      213: 1936043918298204849
-    second: berry_Grab_3
+      213: 9175996669147267597
+    second: Idle_Sprite_Sheet_3
   - first:
-      213: 175215027575144501
-    second: berry_Grab_4
+      213: 4670312565164226230
+    second: Idle_Sprite_Sheet_4
   - first:
-      213: 7279547324498274580
-    second: berry_Grab_5
+      213: 2658613148039534612
+    second: Idle_Sprite_Sheet_5
   - first:
-      213: -4935283945552787008
-    second: berry_Grab_6
-  - first:
-      213: -1809145490194330764
-    second: berry_Grab_7
-  - first:
-      213: 5502033705158227794
-    second: berry_Grab_8
+      213: -704049193451951440
+    second: Idle_Sprite_Sheet_6
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -69,7 +63,7 @@ TextureImporter:
   lightmap: 0
   compressionQuality: 50
   spriteMode: 2
-  spriteExtrude: 0
+  spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
@@ -115,54 +109,6 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: iPhone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Lumin
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Windows Store Apps
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
     buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -178,12 +124,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: berry_Grab_0
+      name: Idle_Sprite_Sheet_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 512
+        width: 501
         height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -192,19 +138,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3e5e9d04e3a93b270800000000000000
-      internalID: 8265119333321663971
+      spriteID: f52f1b7767927ad40800000000000000
+      internalID: 5595486650822160991
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: berry_Grab_1
+      name: Idle_Sprite_Sheet_1
       rect:
         serializedVersion: 2
-        x: 512
+        x: 501
         y: 0
-        width: 512
+        width: 501
         height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -213,19 +159,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8017a9aa9905719e0800000000000000
-      internalID: -1650762117485530872
+      spriteID: 780b3779a50b29880800000000000000
+      internalID: -8605622034817109881
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: berry_Grab_2
+      name: Idle_Sprite_Sheet_2
       rect:
         serializedVersion: 2
-        x: 1024
+        x: 1002
         y: 0
-        width: 512
+        width: 501
         height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -234,19 +180,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a1a276bbdd3180a90800000000000000
-      internalID: -7347600949002163686
+      spriteID: f35ddd420f10aef40800000000000000
+      internalID: 5758417204468897087
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: berry_Grab_3
+      name: Idle_Sprite_Sheet_3
       rect:
         serializedVersion: 2
-        x: 1536
+        x: 1503
         y: 0
-        width: 512
+        width: 501
         height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -255,19 +201,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1ba48b3afa53eda10800000000000000
-      internalID: 1936043918298204849
+      spriteID: d02c0b4aa50b75f70800000000000000
+      internalID: 9175996669147267597
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: berry_Grab_4
+      name: Idle_Sprite_Sheet_4
       rect:
         serializedVersion: 2
-        x: 2048
+        x: 2004
         y: 0
-        width: 512
+        width: 501
         height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -276,19 +222,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5304de5a32d7e6200800000000000000
-      internalID: 175215027575144501
+      spriteID: 6b638ac988840d040800000000000000
+      internalID: 4670312565164226230
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: berry_Grab_5
+      name: Idle_Sprite_Sheet_5
       rect:
         serializedVersion: 2
-        x: 2560
+        x: 2505
         y: 0
-        width: 512
+        width: 501
         height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -297,19 +243,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4196d5219b5260560800000000000000
-      internalID: 7279547324498274580
+      spriteID: 418541c729a45e420800000000000000
+      internalID: 2658613148039534612
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: berry_Grab_6
+      name: Idle_Sprite_Sheet_6
       rect:
         serializedVersion: 2
-        x: 3072
+        x: 3006
         y: 0
-        width: 512
+        width: 501
         height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -318,50 +264,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0c943a75669528bb0800000000000000
-      internalID: -4935283945552787008
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: berry_Grab_7
-      rect:
-        serializedVersion: 2
-        x: 3584
-        y: 0
-        width: 512
-        height: 512
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 47b87fd03cf94e6e0800000000000000
-      internalID: -1809145490194330764
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: berry_Grab_8
-      rect:
-        serializedVersion: 2
-        x: 4096
-        y: 0
-        width: 512
-        height: 512
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 257be2af0862b5c40800000000000000
-      internalID: 5502033705158227794
+      spriteID: 0ba65ef1df6ba36f0800000000000000
+      internalID: -704049193451951440
       vertices: []
       indices: 
       edges: []

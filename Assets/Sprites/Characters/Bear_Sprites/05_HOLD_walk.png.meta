@@ -1,31 +1,31 @@
 fileFormatVersion: 2
-guid: f534cf86ceb04cb46b2438f8dd70d8c6
+guid: 03f21973731dac041a1e58d9e8ebe570
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4654890126770757620
-    second: berry_JumpHold_0
+      213: -4416863653028019662
+    second: 05_HOLD_walk_0
   - first:
-      213: 5242473646531464280
-    second: berry_JumpHold_1
+      213: -1497333124779544601
+    second: 05_HOLD_walk_1
   - first:
-      213: -2890636419390741468
-    second: berry_JumpHold_2
+      213: -5658153099547074814
+    second: 05_HOLD_walk_2
   - first:
-      213: 8477276966134478030
-    second: berry_JumpHold_3
+      213: 6219996820200100825
+    second: 05_HOLD_walk_3
   - first:
-      213: -5150102246796101058
-    second: berry_JumpHold_4
+      213: 2567918058672530809
+    second: 05_HOLD_walk_4
   - first:
-      213: 7625287445555550927
-    second: berry_JumpHold_5
+      213: -4058831696667631893
+    second: 05_HOLD_walk_5
   - first:
-      213: 8584386897837843992
-    second: berry_JumpHold_6
+      213: -2827168300158369768
+    second: 05_HOLD_walk_6
   - first:
-      213: -7063401846472269908
-    second: berry_JumpHold_7
+      213: 8149334764038019455
+    second: 05_HOLD_walk_7
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -66,7 +66,7 @@ TextureImporter:
   lightmap: 0
   compressionQuality: 50
   spriteMode: 2
-  spriteExtrude: 0
+  spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
@@ -112,54 +112,6 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: iPhone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Lumin
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Windows Store Apps
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
     buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -175,7 +127,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: berry_JumpHold_0
+      name: 05_HOLD_walk_0
       rect:
         serializedVersion: 2
         x: 0
@@ -189,14 +141,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c002b55a712866fb0800000000000000
-      internalID: -4654890126770757620
+      spriteID: 2324eebb8e524b2c0800000000000000
+      internalID: -4416863653028019662
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: berry_JumpHold_1
+      name: 05_HOLD_walk_1
       rect:
         serializedVersion: 2
         x: 512
@@ -210,14 +162,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 85ccad5710201c840800000000000000
-      internalID: 5242473646531464280
+      spriteID: 7efe61bc477683be0800000000000000
+      internalID: -1497333124779544601
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: berry_JumpHold_2
+      name: 05_HOLD_walk_2
       rect:
         serializedVersion: 2
         x: 1024
@@ -231,14 +183,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4246867ed7562e7d0800000000000000
-      internalID: -2890636419390741468
+      spriteID: 20f98b0fbb33a71b0800000000000000
+      internalID: -5658153099547074814
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: berry_JumpHold_3
+      name: 05_HOLD_walk_3
       rect:
         serializedVersion: 2
         x: 1536
@@ -252,14 +204,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ec4fb057c7655a570800000000000000
-      internalID: 8477276966134478030
+      spriteID: 9d3161c272ed15650800000000000000
+      internalID: 6219996820200100825
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: berry_JumpHold_4
+      name: 05_HOLD_walk_4
       rect:
         serializedVersion: 2
         x: 2048
@@ -273,14 +225,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e3af6cefa492788b0800000000000000
-      internalID: -5150102246796101058
+      spriteID: 975ac737ed313a320800000000000000
+      internalID: 2567918058672530809
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: berry_JumpHold_5
+      name: 05_HOLD_walk_5
       rect:
         serializedVersion: 2
         x: 2560
@@ -294,14 +246,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fca959ef78672d960800000000000000
-      internalID: 7625287445555550927
+      spriteID: bee970593122ca7c0800000000000000
+      internalID: -4058831696667631893
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: berry_JumpHold_6
+      name: 05_HOLD_walk_6
       rect:
         serializedVersion: 2
         x: 3072
@@ -315,14 +267,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 816642cc66ed12770800000000000000
-      internalID: 8584386897837843992
+      spriteID: 810c0d4f861e3c8d0800000000000000
+      internalID: -2827168300158369768
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: berry_JumpHold_7
+      name: 05_HOLD_walk_7
       rect:
         serializedVersion: 2
         x: 3584
@@ -336,8 +288,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: caf9e23b171c9fd90800000000000000
-      internalID: -7063401846472269908
+      spriteID: f795a367ac0481170800000000000000
+      internalID: 8149334764038019455
       vertices: []
       indices: 
       edges: []

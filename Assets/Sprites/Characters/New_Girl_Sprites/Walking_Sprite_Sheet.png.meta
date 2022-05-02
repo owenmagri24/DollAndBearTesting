@@ -1,19 +1,34 @@
 fileFormatVersion: 2
-guid: 4b37c23c974e4bd439596aaacacbed73
+guid: 14c88bda57d3c1b44bee292efaa14740
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1724407202929823888
-    second: berry_Throw01_0
+      213: 4264677132743317796
+    second: Walking_Sprite_Sheet_0
   - first:
-      213: -8590132874697954426
-    second: berry_Throw01_1
+      213: -5116967948235528350
+    second: Walking_Sprite_Sheet_1
   - first:
-      213: 8989048827283491833
-    second: berry_Throw01_2
+      213: -5454393654779066981
+    second: Walking_Sprite_Sheet_2
   - first:
-      213: 6372729446684796497
-    second: berry_Throw01_3
+      213: 9048906295791529608
+    second: Walking_Sprite_Sheet_3
+  - first:
+      213: -1881782397555886869
+    second: Walking_Sprite_Sheet_4
+  - first:
+      213: 2372706768342411361
+    second: Walking_Sprite_Sheet_5
+  - first:
+      213: 566857053625383393
+    second: Walking_Sprite_Sheet_6
+  - first:
+      213: -8736821659539890209
+    second: Walking_Sprite_Sheet_7
+  - first:
+      213: -2219267162058482911
+    second: Walking_Sprite_Sheet_8
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -54,7 +69,7 @@ TextureImporter:
   lightmap: 0
   compressionQuality: 50
   spriteMode: 2
-  spriteExtrude: 0
+  spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
@@ -100,54 +115,6 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: iPhone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Lumin
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Windows Store Apps
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
     buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -163,7 +130,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: berry_Throw01_0
+      name: Walking_Sprite_Sheet_0
       rect:
         serializedVersion: 2
         x: 0
@@ -177,14 +144,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 090d1caf6335ee710800000000000000
-      internalID: 1724407202929823888
+      spriteID: 42995eac14d2f2b30800000000000000
+      internalID: 4264677132743317796
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: berry_Throw01_1
+      name: Walking_Sprite_Sheet_1
       rect:
         serializedVersion: 2
         x: 512
@@ -198,14 +165,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 68b2936b9a7b9c880800000000000000
-      internalID: -8590132874697954426
+      spriteID: 267ac5e03c0ecf8b0800000000000000
+      internalID: -5116967948235528350
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: berry_Throw01_2
+      name: Walking_Sprite_Sheet_2
       rect:
         serializedVersion: 2
         x: 1024
@@ -219,14 +186,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9fbcfda48448fbc70800000000000000
-      internalID: 8989048827283491833
+      spriteID: b95cfbd9ed91e44b0800000000000000
+      internalID: -5454393654779066981
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: berry_Throw01_3
+      name: Walking_Sprite_Sheet_3
       rect:
         serializedVersion: 2
         x: 1536
@@ -240,8 +207,113 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 156a157eaab707850800000000000000
-      internalID: 6372729446684796497
+      spriteID: 88e2376355c249d70800000000000000
+      internalID: 9048906295791529608
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Walking_Sprite_Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 0
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be4391921e092e5e0800000000000000
+      internalID: -1881782397555886869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Walking_Sprite_Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 0
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 168e6331c3c8de020800000000000000
+      internalID: 2372706768342411361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Walking_Sprite_Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 0
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e9f3c7ac71edd700800000000000000
+      internalID: 566857053625383393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Walking_Sprite_Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 3584
+        y: 0
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fdf9f258df290c680800000000000000
+      internalID: -8736821659539890209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Walking_Sprite_Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 4096
+        y: 0
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12b90d736449331e0800000000000000
+      internalID: -2219267162058482911
       vertices: []
       indices: 
       edges: []

@@ -1,19 +1,10 @@
 fileFormatVersion: 2
-guid: beec8cca226a0c745a06c9e80dd9f527
+guid: cd45f497742de954ea506e9b8d373797
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4303810479526625184
-    second: berry_Throw02_0
-  - first:
-      213: -2014677700484901314
-    second: berry_Throw02_1
-  - first:
-      213: 8763782247923271427
-    second: berry_Throw02_2
-  - first:
-      213: -7224328601091928376
-    second: berry_Throw02_3
+      213: -3630614870661662167
+    second: 00_Resting_Throw_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -54,7 +45,7 @@ TextureImporter:
   lightmap: 0
   compressionQuality: 50
   spriteMode: 2
-  spriteExtrude: 0
+  spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
@@ -100,54 +91,6 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: iPhone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Lumin
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Windows Store Apps
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
     buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -163,7 +106,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: berry_Throw02_0
+      name: 00_Resting_Throw_0
       rect:
         serializedVersion: 2
         x: 0
@@ -177,20 +120,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0afb9cc14d43abb30800000000000000
-      internalID: 4303810479526625184
+      spriteID: d02160ee0fb8cd850800000000000000
+      internalID: 6403146637115789837
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: berry_Throw02_1
+      name: 00_Resting_Throw_1
       rect:
         serializedVersion: 2
         x: 512
         y: 0
         width: 512
-        height: 512
+        height: 511
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -198,14 +141,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e3652bd3e4d6a04e0800000000000000
-      internalID: -2014677700484901314
+      spriteID: c8d03acfcffed8ce0800000000000000
+      internalID: -1401200039193014900
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: berry_Throw02_2
+      name: 00_Resting_Throw_2
       rect:
         serializedVersion: 2
         x: 1024
@@ -219,14 +162,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3074750a5853f9970800000000000000
-      internalID: 8763782247923271427
+      spriteID: ffa528b5cfcb992e0800000000000000
+      internalID: -2118454357648057601
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: berry_Throw02_3
+      name: 00_Resting_Throw_3
       rect:
         serializedVersion: 2
         x: 1536
@@ -240,8 +183,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8ce8837d9670ebb90800000000000000
-      internalID: -7224328601091928376
+      spriteID: 92af5fdc2077d9dc0800000000000000
+      internalID: -3630614870661662167
       vertices: []
       indices: 
       edges: []
