@@ -106,6 +106,14 @@ public class DollScript : CharacterBase
         {
             m_UIManager.ChangeText("Where's the girl?");
         }
+
+        if(other.gameObject.name == "Lock")
+        {
+            if(m_HoldingObject != null && m_HoldingObject.name == "Key")
+            {
+                other.GetComponent<Lock>().OpenChestTop();
+            }
+        }
     }
 
     protected override void OnTriggerExit2D(Collider2D other) {
@@ -115,6 +123,13 @@ public class DollScript : CharacterBase
         {
             m_UIManager.ToggleText();
         }
+    }
+
+    protected override void OnCollisionEnter2D(Collision2D other)
+    {
+        base.OnCollisionEnter2D(other);
+
+        
     }
 
     private void WallJumping()

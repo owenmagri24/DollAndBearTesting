@@ -12862,6 +12862,16 @@ MonoBehaviour:
   m_RespawnPoint: {x: 0, y: 0}
   m_BoxHolderCollider: {fileID: 2120024536}
   m_NoFrictionMaterial: {fileID: 6200000, guid: 224e778fdf165ec4089766e85abd78e2, type: 2}
+  m_BearColor: 0
+  m_FrontCheck: {fileID: 0}
+  m_WallLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  m_WallSlidingSpeed: 0
+  m_WallCheckRadius: 0
+  m_xWallForce: 0
+  m_yWallForce: 0
+  m_WallJumpTime: 0
 --- !u!50 &165742811
 Rigidbody2D:
   serializedVersion: 4
@@ -15799,7 +15809,7 @@ SpriteRenderer:
   m_Size: {x: 2.8, y: 5.125}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &879453948
@@ -16070,7 +16080,7 @@ SpriteRenderer:
   m_Size: {x: 5.12, y: 5.12}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &945446153
@@ -17095,7 +17105,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!95 &1164772227
@@ -39147,7 +39157,7 @@ SpriteRenderer:
   m_Size: {x: 5.12, y: 5.125}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1001 &1823430348
