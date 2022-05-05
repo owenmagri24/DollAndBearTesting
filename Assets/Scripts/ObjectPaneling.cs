@@ -23,7 +23,6 @@ public class ObjectPaneling : MonoBehaviour
 
         if(other.gameObject.layer == playerLayer)
         {
-            Debug.Log("Triggered with Player");
             StartCoroutine(panelToTarget(other.transform));
         }
     }

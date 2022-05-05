@@ -108,6 +108,13 @@ public class BallControl : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D other) {
+        if(other.gameObject.tag == "DeathArea")
+        {
+            m_CharacterController.RestartCharacters();
+        }
+    }
+
     public void ResetBall()
     {
         transform.SetParent(Girl.transform); //set girl as parent

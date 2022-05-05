@@ -158,7 +158,7 @@ public abstract class CharacterBase : MonoBehaviour
     }
 
     protected bool IsGrounded() {
-        int layers = 1 << LayerMask.NameToLayer("Platforms") | 1 << LayerMask.NameToLayer("InteractableObject") | 1 << LayerMask.NameToLayer("WallJump");
+        int layers = 1 << LayerMask.NameToLayer("Platforms") | 1 << LayerMask.NameToLayer("InteractableObject") | 1 << LayerMask.NameToLayer("WallJump") | 1 << LayerMask.NameToLayer("ChestTop");
         RaycastHit2D raycastHit2D = Physics2D.Raycast(transform.position, Vector2.down, m_JumpCheckToFloor, layers);
 
         if(m_Rigidbody2D.velocity.y <= 0.0f)
@@ -201,7 +201,14 @@ public abstract class CharacterBase : MonoBehaviour
         else if(other.gameObject.transform.IsChildOf(m_CushionsList.transform))
         {
             m_IsJumping = true;
-            m_Rigidbody2D.AddForce(Vector2.up * m_JumpForce * 1.5f, ForceMode2D.Impulse);
+            if(m_CharacterController.m_ControlledCharacter == m_CharacterController.m_Characters[0]) // if using girl
+            {
+                m_Rigidbody2D.AddForce(Vector2.up * m_JumpForce * 1.5f, ForceMode2D.Impulse);
+            }
+            else //using bear
+            {
+                m_Rigidbody2D.AddForce(Vector2.up * m_JumpForce * 1f, ForceMode2D.Impulse);
+            }
             m_AudioManager.Play("PillowJump");
         }
     }
@@ -210,6 +217,9 @@ public abstract class CharacterBase : MonoBehaviour
     protected virtual void OnTriggerEnter2D(Collider2D other) {
         if(other.TryGetComponent<RespawnPoint>(out RespawnPoint rp)) //if other has respawnpoint script: set it as rp
         {
+            if(m_CharacterController.m_ControlledCharacter != m_CharacterController.m_Characters[0]) //if not girl, return
+                return;
+
             if(!m_RespawnPointManager.RespawnPointsLists.Contains(rp)) // if rp is not in RespawnPointsList
             {
                 m_RespawnPointManager.RespawnPointsLists.Add(rp); //add this respawnpoint to the list
