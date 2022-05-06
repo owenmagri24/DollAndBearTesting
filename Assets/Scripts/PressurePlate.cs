@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PressurePlate : MonoBehaviour
 {
-    public enum PlateColor { Red, Green, Blue, Normal, Painting }
+    public enum PlateColor { Red, Green, Blue, Normal, Painting, }
     public PlateColor m_PlateColor;
     public Material m_PlateMaterial;
 

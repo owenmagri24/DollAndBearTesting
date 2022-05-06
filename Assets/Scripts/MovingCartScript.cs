@@ -4,33 +4,30 @@ using UnityEngine;
 
 public class MovingCartScript : MonoBehaviour
 {
-    private Vector2 m_StartingPos;
-
-    private Vector2 m_Direction = Vector2.left;
-
     [SerializeField]
     private float m_Speed;
-
     [SerializeField]
     private float m_Offset;
+    private Vector2 m_StartingPos;
+    private Vector2 m_Direction = Vector2.left;
+    public bool m_CanMove = false;
+
     void Start()
     {
         m_StartingPos = new Vector2(transform.position.x , transform.position.y);
     }
 
     private void Update() {
+        if(!m_CanMove){ return; }
+
         transform.Translate(m_Direction * m_Speed * Time.deltaTime);
-        //Vector3 CartScale = this.gameObject.transform.localScale;
         if (transform.position.x <= m_StartingPos.x - m_Offset)
         {
             m_Direction = Vector2.right;
-            //CartScale.x = -1;
         }
         else if(transform.position.x >= m_StartingPos.x + m_Offset)
         {
             m_Direction = Vector2.left;
-            //CartScale.x = -1;
         }
-
     }
 }
