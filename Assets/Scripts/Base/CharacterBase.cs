@@ -195,7 +195,14 @@ public abstract class CharacterBase : MonoBehaviour
         if (other.gameObject.transform.IsChildOf(m_CushionsList.transform) && (other.gameObject.name == ("CushionBigBounce")))
         {
             m_IsJumping = true;
-            m_Rigidbody2D.AddForce(Vector2.up * m_JumpForce * 2.5f, ForceMode2D.Impulse);
+            if (m_CharacterController.m_ControlledCharacter == m_CharacterController.m_Characters[0]) // if using girl
+            {
+                m_Rigidbody2D.AddForce(Vector2.up * m_JumpForce * 2f, ForceMode2D.Impulse);
+            }
+            else //using bear
+            {
+                m_Rigidbody2D.AddForce(Vector2.up * m_JumpForce * 1.8f, ForceMode2D.Impulse);         
+            }
             m_AudioManager.Play("PillowJump");
         }
         else if(other.gameObject.transform.IsChildOf(m_CushionsList.transform))
@@ -207,7 +214,7 @@ public abstract class CharacterBase : MonoBehaviour
             }
             else //using bear
             {
-                m_Rigidbody2D.AddForce(Vector2.up * m_JumpForce * 1f, ForceMode2D.Impulse);
+                m_Rigidbody2D.AddForce(Vector2.up * m_JumpForce * 1.5f, ForceMode2D.Impulse);
             }
             m_AudioManager.Play("PillowJump");
         }
