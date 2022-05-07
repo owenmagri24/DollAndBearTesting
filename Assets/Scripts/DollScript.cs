@@ -27,13 +27,20 @@ public class DollScript : CharacterBase
     private bool m_IsFrontTouchingWall;
     private bool m_IsWallSliding;
     private bool m_IsWallJumping;
-    
+
+    //WallJump power up bool
+    public bool powerUpWallJump = false;
+
 
     public override void Update()
     {
         base.Update();
         animator.SetBool("Holding", m_HoldingObject != null);
-        WallJumping();
+        if (powerUpWallJump == true)
+        {
+            WallJumping();
+        }
+        else return;
     }
 
     public override void OnInteract(){
@@ -123,13 +130,18 @@ public class DollScript : CharacterBase
         {
             m_UIManager.ToggleText();
         }
+
     }
 
     protected override void OnCollisionEnter2D(Collision2D other)
     {
         base.OnCollisionEnter2D(other);
 
-        
+        if (other.gameObject.tag == "PowerUP_WallJump")
+        {
+            powerUpWallJump = true;
+            Destroy(other.gameObject);
+        }
     }
 
     private void WallJumping()

@@ -13,6 +13,7 @@ TagManager:
   - Level1End
   - PowerUP_Throw
   - Cart_Parent
+  - PowerUP_WallJump
   layers:
   - Default
   - TransparentFX
