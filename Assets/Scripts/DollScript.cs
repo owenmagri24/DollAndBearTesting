@@ -27,20 +27,17 @@ public class DollScript : CharacterBase
     private bool m_IsFrontTouchingWall;
     private bool m_IsWallSliding;
     private bool m_IsWallJumping;
-
-    //WallJump power up bool
-    public bool powerUpWallJump = false;
+    public bool m_CanWallJump = false;
 
 
     public override void Update()
     {
         base.Update();
         animator.SetBool("Holding", m_HoldingObject != null);
-        if (powerUpWallJump == true)
+        if (m_CanWallJump == true)
         {
             WallJumping();
         }
-        else return;
     }
 
     public override void OnInteract(){
@@ -71,7 +68,7 @@ public class DollScript : CharacterBase
             m_BoxHolderCollider.size = objectHitCollider.size; //set boxholder collider size to object collider size
 
             //Intro Segment
-            if(m_UIManager.GrabIntroText == true)
+            if(m_UIManager.GrabIntroText == true && m_UIManager.m_IsIntro == true)
             {
                 m_UIManager.GrabIntroText = false;
                 m_UIManager.ToggleText();
@@ -139,7 +136,8 @@ public class DollScript : CharacterBase
 
         if (other.gameObject.tag == "PowerUP_WallJump")
         {
-            powerUpWallJump = true;
+            m_UIManager.ChangeLevel2Text("The bear can now Wall Jump on certain walls!");
+            m_CanWallJump = true;
             Destroy(other.gameObject);
         }
     }

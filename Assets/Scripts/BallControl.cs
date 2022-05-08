@@ -98,11 +98,11 @@ public class BallControl : MonoBehaviour
         BearBallVisual.enabled = false; //turns sprite off
 
         //IntroSegment
-        if(m_UIManager.SwapIntroText == true)
+        if(m_UIManager.SwapIntroText == true && m_UIManager.m_IsIntro == true)
         {
             m_UIManager.ChangeText("Press q to swap characters");
         }
-        if(m_UIManager.GrabIntroText == true)
+        if(m_UIManager.GrabIntroText == true && m_UIManager.m_IsIntro == true)
         {
             m_UIManager.ChangeText("You can grab objects with the bear");
         }
@@ -141,7 +141,7 @@ public class BallControl : MonoBehaviour
         animator.SetBool("Throwing", true);
 
         //Intro Segment
-        if(m_UIManager.m_ThrowIntroText == true){ 
+        if(m_UIManager.m_ThrowIntroText == true && m_UIManager.m_IsIntro == true){ 
             m_UIManager.ChangeText("Right click to cancel throw");
         }
     }
@@ -162,7 +162,7 @@ public class BallControl : MonoBehaviour
 
 
         //Intro Segment
-        if(m_UIManager.m_ThrowIntroText == true)
+        if(m_UIManager.m_ThrowIntroText == true && m_UIManager.m_IsIntro == true)
         {
             m_UIManager.ToggleText();
             m_UIManager.m_ThrowIntroText = false;

@@ -5,13 +5,17 @@ using UnityEngine.InputSystem;
 
 public class GirlScript : CharacterBase
 {
+    
+    private GameObject m_SleepingBear;
 
-    private SleepingBearScript m_SleepingBearScript;
+    public override void Start() {
+        base.Start();
+        
 
+        m_SleepingBear = GameObject.FindGameObjectWithTag("SleepingBear");
 
-    public override void Update()
-    {
-        base.Update();
+        if(m_SleepingBear == null) 
+            m_BallControl.m_canThrow = true;
     }
 
     public override void OnInteract()
@@ -22,7 +26,7 @@ public class GirlScript : CharacterBase
             m_ObjectHit.transform.parent = null;
             m_ObjectHit.SetActive(false);
 
-            if(m_UIManager.SwapIntroText == true)
+            if(m_UIManager.m_IsIntro == true && m_UIManager.SwapIntroText == true)
             {
                 m_UIManager.ToggleText();
                 m_UIManager.SwapIntroText = false;
@@ -30,7 +34,7 @@ public class GirlScript : CharacterBase
         }
 
         //Intro Segment
-        else if(m_ObjectHit != null &&  m_ObjectHit.name == "SleepingBear")
+        else if(m_ObjectHit != null &&  m_ObjectHit == m_SleepingBear)
         {
             m_BallControl.m_canThrow = true;
             Destroy(m_ObjectHit);
@@ -43,9 +47,8 @@ public class GirlScript : CharacterBase
     protected override void OnTriggerEnter2D(Collider2D other) {
         base.OnTriggerEnter2D(other);
 
-        if(other.gameObject.GetComponent<SleepingBearScript>())
+        if(other.gameObject == m_SleepingBear)
         {
-            m_SleepingBearScript = other.gameObject.GetComponent<SleepingBearScript>();
             m_UIManager.ToggleText();
         }
         else if(other.gameObject.tag == "Level1End")
@@ -62,7 +65,7 @@ public class GirlScript : CharacterBase
     protected override void OnTriggerExit2D(Collider2D other) {
         base.OnTriggerExit2D(other);
 
-        if(other.gameObject.GetComponent<SleepingBearScript>())
+        if(other.gameObject == m_SleepingBear)
         {
             m_UIManager.ToggleText();
         }

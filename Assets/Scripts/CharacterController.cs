@@ -61,7 +61,7 @@ public class CharacterController : MonoBehaviour
             ControlGirl();
 
             //Intro Segment
-            if(m_UIManager.SwapIntroText == true)
+            if(m_UIManager.SwapIntroText == true && m_UIManager.m_IsIntro == true)
             {
                 m_UIManager.ChangeText("Pickup the bear to throw him again!");
                 m_UIManager.GrabIntroText = true;

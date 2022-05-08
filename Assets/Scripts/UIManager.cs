@@ -10,12 +10,14 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject m_SettingsMenu;
     [SerializeField] private GameObject m_ControlsMenu;
     [SerializeField] private CharacterController m_CharacterController;
+    [SerializeField] private GameObject m_Level2Text;
 
     public GameObject InfoText;
     public bool m_ThrowIntroText;
     public bool SwapIntroText;
     public bool GrabIntroText;
     public bool IsPaused;
+    public bool m_IsIntro;
 
     private void Start() {
         IsPaused = false;
@@ -23,6 +25,12 @@ public class UIManager : MonoBehaviour
         m_ThrowIntroText = true;
         SwapIntroText = true;
         GrabIntroText = false;
+
+        Scene currentScene = SceneManager.GetActiveScene();
+        if(currentScene.name == "Level 1")
+        {
+            m_IsIntro = true;
+        }
     }
 
     public void PauseGame(){
@@ -90,7 +98,6 @@ public class UIManager : MonoBehaviour
             InfoText.SetActive(true);
         }
         InfoText.GetComponent<Text>().text = newText;
-
     }
 
     public void ToggleText()
@@ -102,5 +109,21 @@ public class UIManager : MonoBehaviour
         {
             InfoText.SetActive(true);
         }
+    }
+
+    public void ChangeLevel2Text(string textToDisplay)
+    {
+        if(m_Level2Text.activeSelf == false)
+        {
+            StartCoroutine(EnableText(textToDisplay));
+        }
+    }
+
+    IEnumerator EnableText(string textToDisplay)
+    {
+        m_Level2Text.SetActive(true);
+        m_Level2Text.GetComponent<Text>().text = textToDisplay;
+        yield return new WaitForSeconds(4f);
+        m_Level2Text.SetActive(false);
     }
 }

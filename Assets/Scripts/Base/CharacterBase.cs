@@ -87,7 +87,7 @@ public abstract class CharacterBase : MonoBehaviour
         m_AudioManager = AudioManager.instance;
     }
 
-    protected void Start() {
+    public virtual void Start() {
         if(m_RespawnPointManager.RespawnPointsLists != null)
         {
             m_RespawnPoint = m_RespawnPointManager.RespawnPointsLists[0].location; //get location of respawn point in position 0
@@ -97,6 +97,7 @@ public abstract class CharacterBase : MonoBehaviour
             Debug.LogWarning("RespawnPointsList is empty");
             return;
         }
+        
         
     }
 

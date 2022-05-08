@@ -14,6 +14,7 @@ TagManager:
   - PowerUP_Throw
   - Cart_Parent
   - PowerUP_WallJump
+  - SleepingBear
   layers:
   - Default
   - TransparentFX

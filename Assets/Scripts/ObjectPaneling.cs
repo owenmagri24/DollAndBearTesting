@@ -5,10 +5,11 @@ using Cinemachine;
 
 public class ObjectPaneling : MonoBehaviour
 {
+    [SerializeField] private Transform target;
+    [SerializeField] private float panelTime;
     private CinemachineVirtualCamera cinemachineVirtualCamera;
     private CinemachineTargetGroup cinemachineTargetGroup;
     private bool firstTime = true;
-    [SerializeField] private Transform target;
     int playerLayer;
 
     private void Start() {
@@ -37,7 +38,7 @@ public class ObjectPaneling : MonoBehaviour
         }
         
         cinemachineTargetGroup.AddMember(target, 1, 0);
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(panelTime);
         cinemachineTargetGroup.RemoveMember(target);
 
         for (int i = 0; i < cinemachineTargetGroup.m_Targets.Length; i++)
