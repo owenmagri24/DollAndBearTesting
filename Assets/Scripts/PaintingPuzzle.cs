@@ -15,7 +15,7 @@ public class PaintingPuzzle : MonoBehaviour
             TurnOffBridges();
             m_Bridges[0].SetActive(true);
         }
-        else if(bearColor == PressurePlate.PlateColor.Green)
+        else if(bearColor == PressurePlate.PlateColor.Yellow)
         {
             TurnOffBridges();
             m_Bridges[1].SetActive(true);

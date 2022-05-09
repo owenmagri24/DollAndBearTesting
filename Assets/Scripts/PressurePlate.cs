@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PressurePlate : MonoBehaviour
 {
-    public enum PlateColor { Red, Green, Blue, Normal, Painting, }
+    public enum PlateColor { Red, Yellow, Blue, Normal, Painting, }
     public PlateColor m_PlateColor;
     public Material m_PlateMaterial;
 
@@ -14,15 +14,8 @@ public class PressurePlate : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D other) {
         if(other.gameObject.tag == "Bear")
         {
-            if(m_PlateColor == PlateColor.Painting)
-            {
-                var bearColor = other.gameObject.GetComponent<DollScript>().m_BearColor;
-                m_PaintingPuzzle.TurnOnBridge(bearColor);
-            }
-            else
-            {
-                ChangeBearColor(other.gameObject);
-            }
+            other.gameObject.GetComponent<DollScript>().m_BearColor = m_PlateColor;
+            m_PaintingPuzzle.TurnOnBridge(m_PlateColor);
         }
     }
 

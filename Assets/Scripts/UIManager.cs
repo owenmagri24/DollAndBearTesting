@@ -81,14 +81,19 @@ public class UIManager : MonoBehaviour
 
     public void LoadLevel()
     {
-        //Load Level Scene
+        //Load Level1 Scene
         SceneManager.LoadScene(2);
+    }
+
+    public void LoadLevel2()
+    {
+        SceneManager.LoadScene(3);
     }
 
     public void WinGame()
     {
-        //Load Win Scene at position 2
-        SceneManager.LoadScene(3);
+        //Load Win Scene
+        SceneManager.LoadScene(4);
     }
 
     public void ChangeText(string newText)

@@ -53,6 +53,11 @@ public class GirlScript : CharacterBase
         }
         else if(other.gameObject.tag == "Level1End")
         {
+            //load next level
+            m_UIManager.LoadLevel2();
+        }
+        else if(other.gameObject.tag == "Level2End")
+        {
             //win game
             m_UIManager.WinGame();
         }

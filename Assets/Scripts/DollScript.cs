@@ -106,7 +106,7 @@ public class DollScript : CharacterBase
     protected override void OnTriggerEnter2D(Collider2D other) {
         base.OnTriggerEnter2D(other);
 
-        if(other.gameObject.tag == "Level1End")
+        if(other.gameObject.tag == "Level1End" || other.gameObject.tag == "Level2End")
         {
             m_UIManager.ChangeText("Where's the girl?");
         }

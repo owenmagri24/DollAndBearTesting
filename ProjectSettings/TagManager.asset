@@ -15,6 +15,7 @@ TagManager:
   - Cart_Parent
   - PowerUP_WallJump
   - SleepingBear
+  - Level2End
   layers:
   - Default
   - TransparentFX
