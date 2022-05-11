@@ -18138,7 +18138,7 @@ Transform:
   - {fileID: 1896115260}
   - {fileID: 609673417}
   m_Father: {fileID: 975146281}
-  m_RootOrder: 13
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &929094692
 GameObject:
@@ -18722,6 +18722,7 @@ Transform:
   m_Children:
   - {fileID: 1347899816}
   - {fileID: 1645030036}
+  - {fileID: 913588597}
   - {fileID: 1424154499}
   - {fileID: 845961359}
   - {fileID: 249667997}
@@ -18733,7 +18734,6 @@ Transform:
   - {fileID: 796965750}
   - {fileID: 1657221067}
   - {fileID: 1597944200}
-  - {fileID: 913588597}
   - {fileID: 873185022}
   - {fileID: 1712311983}
   - {fileID: 1856869652}
@@ -24565,7 +24565,7 @@ TilemapRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1521919973}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -45586,7 +45586,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Press e to throw the bear
+  m_Text: Press e to pick up the bear
 --- !u!222 &1783387502
 CanvasRenderer:
   m_ObjectHideFlags: 0
