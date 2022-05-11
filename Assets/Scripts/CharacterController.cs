@@ -90,6 +90,17 @@ public class CharacterController : MonoBehaviour
             m_BallControl.ResetBall(); //reset ball
             m_Camera.m_Lens.OrthographicSize = m_BallControl.m_ZoomNormal; //normal zoom
         }
+        // if(TryGetComponent<CloudLift>(out CloudLift cloud))
+        // {
+        //     Debug.Log("Move cloud");
+        //     cloud.transform.position = cloud.m_StartPos;
+        // }
+        if(GameObject.FindObjectOfType<CloudLift>() != null)
+        {
+            Debug.Log("Move cloud");
+            var cloud = GameObject.FindObjectOfType<CloudLift>();
+            cloud.transform.position = cloud.m_StartPos;
+        }
     }
 
     void OnPause()

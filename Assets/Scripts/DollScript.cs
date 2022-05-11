@@ -138,6 +138,10 @@ public class DollScript : CharacterBase
         {
             m_UIManager.ChangeLevel2Text("The bear can now Wall Jump on certain walls!");
             m_CanWallJump = true;
+            var ps = other.gameObject.GetComponentInChildren<ParticleSystem>();
+            ps.transform.parent = null;
+            ps.transform.localScale = Vector3.one;
+            ps.Play();
             Destroy(other.gameObject);
         }
     }

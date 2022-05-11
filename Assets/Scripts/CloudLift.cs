@@ -7,9 +7,14 @@ public class CloudLift : MonoBehaviour
     [SerializeField] private float m_Speed;
     [SerializeField] private Transform m_TopPos;
     [SerializeField] private Transform m_BottomPos;
+    [HideInInspector] public Vector2 m_StartPos;
     private Vector2 m_Direction = Vector2.up;
     
     public bool m_CanMove = false;
+
+    private void Start() {
+        m_StartPos = transform.position;
+    }
 
     void Update()
     {

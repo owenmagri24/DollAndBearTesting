@@ -53,7 +53,7 @@ MonoBehaviour:
     loop: 1
     source: {fileID: 0}
   - name: Checkpoint
-    clip: {fileID: 8300000, guid: ea16894cb118b894c9e51dc93adcb676, type: 3}
+    clip: {fileID: 8300000, guid: 1841037f18d784cb6af489c2fb0656d7, type: 3}
     audioMixer: {fileID: 24100000, guid: b9ee9c352e05340ca88b21611ba658b7, type: 2}
     mixerGroup: {fileID: 6452605443232093266, guid: b9ee9c352e05340ca88b21611ba658b7, type: 2}
     volume: 1
